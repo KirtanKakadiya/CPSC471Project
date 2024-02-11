@@ -1,16 +1,17 @@
 import React from 'react'
 import './Login.css';
-import {useState,useRef} from'react'
+import {useState} from'react'
 import { FaUser} from "react-icons/fa";
 import { IoMdKey } from "react-icons/io";
-
+import {useNavigate} from 'react-router-dom'
 
 const EXAMPLE_USER = "student";
 const EXAMPLE_PASS = "password";
 
+
 export default function LoginPage(){
 
-    const failedText = useRef();
+    const navigate = useNavigate();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [successText, setSuccessText] = useState("");
@@ -18,11 +19,12 @@ export default function LoginPage(){
     
 
     const handleSubmit = (event) =>{
-        if(username != EXAMPLE_USER || password != EXAMPLE_PASS){
+        if(username !== EXAMPLE_USER || password !== EXAMPLE_PASS){
             setSuccessText("Incorrect username or password");
         }
         else{
-            setSuccessText("Successfully logged in")
+            navigate("/home", {state:{userName : username}});
+            
         }
 
         event.preventDefault();
