@@ -1,55 +1,38 @@
-.nav-container{
-    position: fixed;
-    display: flex;
+
+/* Sidebar Styles */
+.sidebar {
     width: 25%;
-    min-height: 100vh;
-    background-color:lightsalmon;
-    
-}
-
-.nav-container ul{
-    margin-left: 1vh;
-    list-style-type: none;
-}
-
-
-.nav-container li{
-    width: 100%;
-    padding: 1vh;
-    border: 1px solid black;
-    border-radius: 4px;
-}
-
-.nav-container a{
-    margin: 1vh;
-    position:relative;
-    width: 100%;
-    z-index: 1;
-    text-decoration: none;
-}
-
-.nav-container a::after{
+    height: 100vh;
+    background-color: lightsalmon;
+    color: black;
+    padding-top: 20px;
+    transition: width 0.3s; /* Add a smooth transition effect on width change */
+    box-shadow: 0 4px 8px rgba(124, 85, 85, 0.1); /* Add a subtle shadow for depth */
+  }
+  
+  
+  /* Sidebar Links */
+  .sidebar .sidebar-links {
     display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    margin: auto;
-    width: 100%;
-    height: 1px;
-    content: '.';
-    color: transparent;
-    background: lightblue;
-    visibility: none;
-    opacity: 0;
-    z-index: -1;
-}
-
-.nav-container a:hover::after{
-    opacity: 1;
-    visibility: visible;
-    height: 100%;
-    width: 100%;
-}
-
+    padding: 15px;
+    text-decoration: none;
+    color: black;
+    transition: background-color 0.3s; /* Add a smooth transition effect on background color change */
+    
+  }
+  
+  .sidebar a{
+    text-decoration: none;
+    
+  }
+  /* Change the color and add a hover effect */
+  .sidebar .sidebar-links:hover {
+    background-color: lightblue;
+  }
+  
+  /* Main Content */
+  .main-content {
+    margin-left: 250px;
+    padding: 20px;
+  }
+  
