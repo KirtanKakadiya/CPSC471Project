@@ -9,11 +9,12 @@ function App() {
 
     <BrowserRouter>
       <Routes>
-        <Route path = "/" element = {<LoginPage />} />
+        <Route index element = {<LoginPage />} />
       </Routes>
       <Routes>
         <Route path = "/" element = {<Layout />}>
           <Route path = "/home" element = {<HomePage />} />
+          <Route path = "/history"/>
         </Route>
       </Routes>
     </BrowserRouter>

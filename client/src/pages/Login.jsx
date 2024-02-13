@@ -31,7 +31,8 @@ export default function LoginPage(){
     }
 
     return(
-        <div className='wrapper'>
+        <div className='login-page'>
+            <div className='wrapper'>
             <form onSubmit={handleSubmit}>
                 <h1>Login</h1>
                 <div className="input-box">
@@ -46,8 +47,9 @@ export default function LoginPage(){
                 <button className='submit-login'>Login</button>
                 <h2 className='on-fail'>{successText}</h2>
             </form>
-
+            </div>
         </div>
+        
     );
 
 }

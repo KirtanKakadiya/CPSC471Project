@@ -1,13 +1,21 @@
 import React from 'react'
-import LoginPage from '../pages/Login';
+import { IoHomeSharp } from "react-icons/io5";
+import { LuHistory } from "react-icons/lu";
+import './NavBar.css'
 
 
 export default function NavBar(){
     return(
-        <nav>
+        <nav className='nav-container'>
             <ul>
-                <li><a>Page 1</a></li>
-                <li><a>Page 2</a></li>
+                <li>
+                    <IoHomeSharp />
+                    <a href='/home'>Home</a>
+                </li>
+                <li>
+                    <LuHistory />
+                    <a href='/history'>History</a>
+                </li>
             </ul>
         </nav>
     );
