@@ -5,7 +5,7 @@ export default function HomePage(){
     const location = useLocation();
     return(
         <div>
-            {location.state.userName}
+            Home Page
         </div>
     );
 }

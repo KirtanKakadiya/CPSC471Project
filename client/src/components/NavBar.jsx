@@ -1,7 +1,7 @@
 import React from 'react'
 import { IoHomeSharp } from "react-icons/io5";
 import { LuHistory } from "react-icons/lu";
-import './NavBar.css'
+import '../assets/styling/NavBar.css';
 
 
 export default function NavBar(){
@@ -14,7 +14,7 @@ export default function NavBar(){
                 </li>
                 <li className='sidebar-links'>
                     <LuHistory />
-                    <a href='/history'>History</a>
+                    <a href='/viewroom'>View Rooms</a>
                 </li>
             </ul>
         </nav>

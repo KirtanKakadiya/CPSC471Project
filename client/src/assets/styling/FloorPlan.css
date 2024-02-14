@@ -1,0 +1,12 @@
+.room-wrapper{
+    display: flex;
+}
+
+.rooms{
+    margin-top:2vh;
+
+}
+
+.rooms:last-child{
+    margin-top: 0;
+}

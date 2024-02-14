@@ -1,0 +1,36 @@
+.content-wrapper-rooms{
+    margin: 5vh;
+    min-width: 5vh;
+    min-height: 5vh;
+}
+
+.room-button{
+    font-size: xx-large;
+    position: relative;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.room-info{
+    font-size: small;
+    position: absolute;
+    top: -30px; /* Adjust the distance from the button */
+    left: 50%;
+    transform: translateX(100%);
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border: solid black;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+}
+
+.room-button:hover .room-info{
+    opacity: 1;
+    visibility: visible;
+}

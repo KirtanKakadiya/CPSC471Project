@@ -1,6 +1,6 @@
-import React from 'react'
-import './Login.css';
-import {useState} from'react'
+import React from 'react';
+import '../assets/styling/Login.css';
+import {useState} from'react';
 import { FaUser} from "react-icons/fa";
 import { IoMdKey } from "react-icons/io";
 import {useNavigate} from 'react-router-dom'

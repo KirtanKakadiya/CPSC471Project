@@ -3,9 +3,12 @@ import NavBar from "./components/NavBar";
 
 export default function Layout(){
     return(
-        <main>
+        <div style={{ display: "flex" }}>
             <NavBar />
-            <Outlet />
-        </main>
+            <main style={{ flex: 1 }}>
+                <Outlet />
+            </main>
+        </div>
+
     );
 }
