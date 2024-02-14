@@ -45,7 +45,9 @@ export default function LoginPage(){
                 </div>
 
                 <button className='submit-login'>Login</button>
+                <h2 className='register'>Not a member? <a href='/register'>Register</a></h2>
                 <h2 className='on-fail'>{successText}</h2>
+
             </form>
             </div>
         </div>

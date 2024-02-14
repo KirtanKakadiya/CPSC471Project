@@ -1,5 +1,7 @@
 .room-wrapper{
-    display: flex;
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    grid-template-columns: auto auto auto;
 }
 
 .rooms{

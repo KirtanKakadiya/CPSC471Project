@@ -1,6 +1,6 @@
 .content-wrapper{
     margin-right: 10%;
-    display: flex;
+    display: grid;
     flex-grow: 1;
     padding: 20px;
     clear: both;
