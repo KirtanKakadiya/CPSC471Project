@@ -1,8 +1,8 @@
 import './App.css';
 import LoginPage from './pages/Login';
 import HomePage from './pages/Home';
-import ViewRoom from './pages/ViewRoom';
-import ViewCourse from './pages/ViewClasses';
+import ExploreRoom from './pages/ExploreRoom';
+import DiscoverClasses from './pages/DiscoverClasses';
 import RegisterPage from './pages/Register';
 import {BrowserRouter, Route,Routes } from "react-router-dom";
 import Layout from './Layout';
@@ -18,8 +18,8 @@ function App() {
       <Routes>
         <Route path = "/" element = {<Layout />}>
           <Route path = "/home" element = {<HomePage />} />
-          <Route path = "/viewroom" element = {<ViewRoom />} />
-          <Route path = "/viewclass" element = {<ViewCourse />} />
+          <Route path = "/exploreclass" element = {<ExploreRoom />} />
+          <Route path = "/discoverclass" element = {<DiscoverClasses />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -45,6 +45,11 @@
     text-decoration: none;
     padding-left: 5%;
   }
+
+  .sidebar a:visited{
+    text-decoration: none;
+  }
+
   /* Change the color and add a hover effect */
   .sidebar .sidebar-links:hover {
     background-color: lightblue;
@@ -57,7 +62,8 @@
   }
 
   .sidebar-profile{
-    
+    position: relative;
+    bottom: 0;
     margin: 2vh;
     border-top: solid 2px black;
     display: flex;
@@ -78,4 +84,9 @@
   .profile-content h2{
     font-size: medium;
   }
+
+  .sidebar-logout:hover{
+    background-color: lightblue;
+  }
+
 

@@ -33,11 +33,11 @@ export default function NavBar(){
                         </li>
                         <li className='sidebar-links'>
                             <BsEyeglasses className='sidebar-icons'/>
-                            <a href='/viewroom'>View Rooms</a>
+                            <a href='/exploreclass'>Explore Rooms</a>
                         </li>
                         <li className='sidebar-links'>
                             <MdOutlineClass  className='sidebar-icons'/>
-                            <a href='/viewclass'>View Class</a>
+                            <a href='/discoverclass'>Discover Class</a>
                     </li>
                 </ul>
             </div>
