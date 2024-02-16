@@ -1,0 +1,13 @@
+.course-container{
+    border: solid 2px grey;
+    width: fit-content;
+    height: auto;
+    margin: 2vh;
+    padding: 3vh;
+    border-radius: 10%;
+}
+
+.course-container h1{
+    text-align: center;
+    
+}

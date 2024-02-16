@@ -1,20 +1,40 @@
 
 /* Sidebar Styles */
 .sidebar {
+  position: relative;
     width: 25%;
     height: 100vh;
-    background-color: lightsalmon;
+    background-color: lightgray;
     color: black;
     padding-top: 20px;
     transition: width 0.3s; /* Add a smooth transition effect on width change */
     box-shadow: 0 4px 8px rgba(124, 85, 85, 0.1); /* Add a subtle shadow for depth */
+    
+  }
+
+  .logo-sidebar{
+    display: flex;
+    align-items: center;
+    margin: 2.5%;
+    padding-bottom: 5%;
+    border-bottom: solid 2px black;
+  }
+
+  .logo-img{
+    width: 10vh;
+  }
+
+  .logo-txt{
+    margin-top: 5%;
+    margin-left: 5%;
   }
   
   
   /* Sidebar Links */
   .sidebar .sidebar-links {
-    display: block;
+    display: flex;
     padding: 15px;
+    
     text-decoration: none;
     color: black;
     transition: background-color 0.3s; /* Add a smooth transition effect on background color change */
@@ -23,7 +43,7 @@
   
   .sidebar a{
     text-decoration: none;
-    
+    padding-left: 5%;
   }
   /* Change the color and add a hover effect */
   .sidebar .sidebar-links:hover {
@@ -35,4 +55,27 @@
     margin-left: 250px;
     padding: 20px;
   }
-  
+
+  .sidebar-profile{
+    
+    margin: 2vh;
+    border-top: solid 2px black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .profile-img{
+    width: 10vh;
+    padding: 2vh;
+  }
+
+  .profile-content{
+    margin-top: 2vh;
+    align-items: center;
+  }
+
+  .profile-content h2{
+    font-size: medium;
+  }
+

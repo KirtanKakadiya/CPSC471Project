@@ -2,6 +2,7 @@ import './App.css';
 import LoginPage from './pages/Login';
 import HomePage from './pages/Home';
 import ViewRoom from './pages/ViewRoom';
+import ViewCourse from './pages/ViewClasses';
 import RegisterPage from './pages/Register';
 import {BrowserRouter, Route,Routes } from "react-router-dom";
 import Layout from './Layout';
@@ -18,6 +19,7 @@ function App() {
         <Route path = "/" element = {<Layout />}>
           <Route path = "/home" element = {<HomePage />} />
           <Route path = "/viewroom" element = {<ViewRoom />} />
+          <Route path = "/viewclass" element = {<ViewCourse />} />
         </Route>
       </Routes>
     </BrowserRouter>

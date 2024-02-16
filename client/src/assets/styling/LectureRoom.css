@@ -5,14 +5,17 @@
 .lecroom-button{
     font-size: xx-large;
     position: relative;
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: #fff;
+
+    background: url("../images/lecture-room.png");
+    background-size:contain;
+    background-repeat: repeat;
+    color: black;
+    text-align: center;
+    font-weight: bolder;
     border: solid black;
-    border-radius: 20px;
     cursor: pointer;
-    min-width: 10vh;
-    min-height: 10vh;
+    min-width: 30vh;
+    min-height: 20vh;
 }
 
 .lecroom-info{

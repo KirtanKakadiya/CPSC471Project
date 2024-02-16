@@ -1,0 +1,8 @@
+
+.content-viewclasses{
+    display: flex;
+    grid-template-rows: auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto;
+    justify-content: center;
+}
+

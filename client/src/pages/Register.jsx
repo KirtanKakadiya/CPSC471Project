@@ -3,6 +3,7 @@ import '../assets/styling/Register.css';
 import { useState } from 'react';
 import { FaUser} from "react-icons/fa";
 import { IoMdKey } from "react-icons/io";
+import { MdEmail } from "react-icons/md";
 import {useNavigate} from 'react-router-dom'
 
 export default function RegisterPage(){
@@ -45,11 +46,11 @@ export default function RegisterPage(){
             </div>
             <div className="input-box">
                 <input  value = {confirmPassword} type="text" placeholder='Confirm Password' onChange={(event) => setConfirmPassword(event.target.value)} />
-                <FaUser className='login-icon'/>
+                <IoMdKey className='login-icon'/>
             </div>
             <div className="input-box">
                 <input  value = {email} type="text" placeholder='Email' onChange={(event) => setEmail(event.target.value)}/>
-                <IoMdKey className='login-icon'/>
+                <MdEmail className='login-icon' />
             </div>
 
             <button className='submit-login'>Register</button>

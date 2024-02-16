@@ -1,27 +1,33 @@
 .content-wrapper-rooms{
     margin: 5vh;
-
 }
 
 .room-button{
     font-size: xx-large;
     position: relative;
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: #fff;
+
+    background: url("../images/meeting-room.png");
+    background-size:32vh;
+    background-color: transparent;
+    color: black;
+    text-align: center;
+    font-weight: bolder;
     border: solid black;
-    border-radius: 20px;
     cursor: pointer;
-    min-width: 10vh;
-    min-height: 10vh;
+    min-width: 30vh;
+    min-height: 20vh;
 }
+
+
+
 
 .room-info{
     font-size: small;
     position: absolute;
     top: -30px; /* Adjust the distance from the button */
     left: 50%;
-    transform: translateX(90%);
+    transform: translate(50%);
+
     background-color: grey;
     color: #fff;
     padding: 10px;
