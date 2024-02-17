@@ -5,6 +5,7 @@ import { IoHomeSharp } from "react-icons/io5";
 import { BsEyeglasses } from "react-icons/bs";
 import { MdOutlineClass } from "react-icons/md";
 import { BiLogOut } from "react-icons/bi";
+import { RiReservedFill } from "react-icons/ri";
 import '../assets/styling/NavBar.css';
 import Logo from "../assets/images/logo.png";
 import ProfileImg from "../assets/images/profile-img.png";
@@ -38,7 +39,11 @@ export default function NavBar(){
                         <li className='sidebar-links'>
                             <MdOutlineClass  className='sidebar-icons'/>
                             <a href='/discoverclass'>Discover Class</a>
-                    </li>
+                        </li>
+                        <li className='sidebar-links'>
+                            <RiReservedFill  className='sidebar-icons'/>
+                            <a href='/roomreservations'>Room Reservations</a>
+                        </li>
                 </ul>
             </div>
             
@@ -49,7 +54,7 @@ export default function NavBar(){
                     <h2>Title of User</h2>
                 </div>
                 <IconContext.Provider value={{ className: "sidebar-logout" }}>
-                    <BiLogOut size={60} onClick={handleLogout}/>
+                    <BiLogOut title='Sign Out' size={60} onClick={handleLogout}/>
                 </IconContext.Provider>
             </div>
 
