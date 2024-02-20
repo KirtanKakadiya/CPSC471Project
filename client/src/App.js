@@ -5,6 +5,7 @@ import ExploreRoom from './pages/ExploreRoom';
 import DiscoverClasses from './pages/DiscoverClasses';
 import RegisterPage from './pages/Register';
 import RoomReservations from './pages/RoomReservations';
+import UserInfo from './pages/UserInfo';
 import {BrowserRouter, Route,Routes } from "react-router-dom";
 import Layout from './Layout';
 
@@ -22,6 +23,7 @@ function App() {
           <Route path = "/exploreclass" element = {<ExploreRoom />} />
           <Route path = "/discoverclass" element = {<DiscoverClasses />} />
           <Route path = "/roomreservations" element = {<RoomReservations />} />
+          <Route path = "/userinfo" element = {<UserInfo />} />
         </Route>
       </Routes>
     </BrowserRouter>

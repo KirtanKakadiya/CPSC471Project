@@ -4,6 +4,7 @@ import { IconContext } from "react-icons";
 import { IoHomeSharp } from "react-icons/io5";
 import { BsEyeglasses } from "react-icons/bs";
 import { MdOutlineClass } from "react-icons/md";
+import { IoBodySharp } from "react-icons/io5";
 import { BiLogOut } from "react-icons/bi";
 import { RiReservedFill } from "react-icons/ri";
 import '../assets/styling/NavBar.css';
@@ -43,6 +44,10 @@ export default function NavBar(){
                         <li className='sidebar-links'>
                             <RiReservedFill  className='sidebar-icons'/>
                             <a href='/roomreservations'>Room Reservations</a>
+                        </li>
+                        <li className='sidebar-links'>
+                            <IoBodySharp   className='sidebar-icons'/>
+                            <a href='/userinfo'>User Information</a>
                         </li>
                 </ul>
             </div>
