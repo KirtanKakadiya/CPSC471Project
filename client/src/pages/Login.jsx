@@ -4,9 +4,12 @@ import {useState} from'react';
 import { FaUser} from "react-icons/fa";
 import { IoMdKey } from "react-icons/io";
 import {useNavigate} from 'react-router-dom'
+import { Person, Student } from '../components/UserClasses'
 
 const EXAMPLE_USER = "student";
 const EXAMPLE_PASS = "password";
+const EXAMPLE_STUDENT = new Student(1234, "Alvin", "C.", "Munk");
+export{ EXAMPLE_STUDENT }; 
 
 
 export default function LoginPage(){
@@ -23,8 +26,7 @@ export default function LoginPage(){
             setSuccessText("Incorrect username or password");
         }
         else{
-            navigate("/home", {state:{userName : username}});
-            
+            navigate("/home", {state:{userName : username}});  
         }
 
         event.preventDefault();

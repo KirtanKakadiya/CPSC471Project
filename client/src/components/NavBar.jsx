@@ -1,4 +1,5 @@
 import React from 'react'
+import { EXAMPLE_STUDENT } from '../pages/Login';
 import {useNavigate} from 'react-router-dom'
 import { IconContext } from "react-icons";
 import { IoHomeSharp } from "react-icons/io5";
@@ -55,8 +56,8 @@ export default function NavBar(){
             <div className='sidebar-profile'>
                 <img className='profile-img' src = {ProfileImg} alt='' />
                 <div className='profile-content'>
-                    <h2>FName and LName</h2>
-                    <h2>Title of User</h2>
+                    <h2>{EXAMPLE_STUDENT.Fname} {EXAMPLE_STUDENT.Lname}</h2>
+                    <h2>{EXAMPLE_STUDENT.role}</h2>
                 </div>
                 <IconContext.Provider value={{ className: "sidebar-logout" }}>
                     <BiLogOut title='Sign Out' size={60} onClick={handleLogout}/>
