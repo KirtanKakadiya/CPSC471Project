@@ -9,12 +9,21 @@ import { RiReservedFill } from "react-icons/ri";
 import '../assets/styling/NavBar.css';
 import Logo from "../assets/images/logo.png";
 import ProfileImg from "../assets/images/profile-img.png";
+import { useSelector, useDispatch } from 'react-redux'
+import { setUserDetails } from '../reducers/userSlice';
+
+
 
 export default function NavBar(){
+    
+    const username = useSelector((state) => state.user.username)
+    const usertype = useSelector((state) => state.user.userType)
 
+    const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const handleLogout = () => {
+        dispatch(setUserDetails({type: "LOG_OUT"}))
         navigate("/");
     }
 
@@ -50,8 +59,8 @@ export default function NavBar(){
             <div className='sidebar-profile'>
                 <img className='profile-img' src = {ProfileImg} alt='' />
                 <div className='profile-content'>
-                    <h2>FName and LName</h2>
-                    <h2>Title of User</h2>
+                    <h2>{username}</h2>
+                    <h2>{usertype}</h2>
                 </div>
                 <IconContext.Provider value={{ className: "sidebar-logout" }}>
                     <BiLogOut title='Sign Out' size={60} onClick={handleLogout}/>

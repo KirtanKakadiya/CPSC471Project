@@ -1,13 +1,12 @@
 import './App.css';
-import LoginPage from './pages/Login';
-import HomePage from './pages/Home';
-import ExploreRoom from './pages/ExploreRoom';
-import DiscoverClasses from './pages/DiscoverClasses';
-import RegisterPage from './pages/Register';
-import RoomReservations from './pages/RoomReservations';
+import LoginPage from '../pages/Login';
+import HomePage from '../pages/Home';
+import ExploreRoom from '../pages/ExploreRoom';
+import DiscoverClasses from '../pages/DiscoverClasses';
+import RegisterPage from '../pages/Register';
+import RoomReservations from '../pages/RoomReservations';
 import {BrowserRouter, Route,Routes } from "react-router-dom";
-import Layout from './Layout';
-
+import Layout from "../Layout"
 function App() {
   return (
 

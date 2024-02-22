@@ -4,6 +4,9 @@ import {useState} from'react';
 import { FaUser} from "react-icons/fa";
 import { IoMdKey } from "react-icons/io";
 import {useNavigate} from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { setUserDetails } from '../reducers/userSlice';
+
 
 const EXAMPLE_USER = "student";
 const EXAMPLE_PASS = "password";
@@ -12,17 +15,18 @@ const EXAMPLE_PASS = "password";
 export default function LoginPage(){
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [successText, setSuccessText] = useState("");
 
-    
 
     const handleSubmit = (event) =>{
         if(username !== EXAMPLE_USER || password !== EXAMPLE_PASS){
             setSuccessText("Incorrect username or password");
         }
         else{
+            dispatch(setUserDetails({type: "LOG_IN", payload: {username: "student", userType : "student"}}))
             navigate("/home", {state:{userName : username}});
             
         }
