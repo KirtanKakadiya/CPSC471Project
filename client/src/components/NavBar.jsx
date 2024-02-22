@@ -6,6 +6,7 @@ import { BsEyeglasses } from "react-icons/bs";
 import { MdOutlineClass } from "react-icons/md";
 import { BiLogOut } from "react-icons/bi";
 import { RiReservedFill } from "react-icons/ri";
+import { GrUserAdmin } from "react-icons/gr";
 import '../assets/styling/NavBar.css';
 import Logo from "../assets/images/logo.png";
 import ProfileImg from "../assets/images/profile-img.png";
@@ -18,6 +19,7 @@ export default function NavBar(){
     
     const username = useSelector((state) => state.user.username)
     const usertype = useSelector((state) => state.user.userType)
+
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -37,7 +39,7 @@ export default function NavBar(){
 
             <div>
                 <ul>
-                    <li className='sidebar-links'>
+                        <li className='sidebar-links'>
                             <IoHomeSharp className='sidebar-icons'/>
                             <a href='/home'>Home</a>
                         </li>
@@ -53,6 +55,7 @@ export default function NavBar(){
                             <RiReservedFill  className='sidebar-icons'/>
                             <a href='/roomreservations'>Room Reservations</a>
                         </li>
+                        {usertype === "ADMIN" ? <li className='sidebar-links'><GrUserAdmin className='sidebar-icons'/><a href='/admin'>Modify Rooms</a></li> : null}
                 </ul>
             </div>
             
