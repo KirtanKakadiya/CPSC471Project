@@ -23,22 +23,9 @@ export default function ViewCourse(){
     }, [dropDownOptions])
         
     return(
-        <div>
-            <div className="dropdown">
-                <button onClick={handleDropDown} className="dropbtn">Dropdown</button>
-                <div id="dropwdown" className="dropdown-content" ref={dropdownRef}>
-                    {console.log(links)}
-                    {links}
-                </div>
-            </div>
-                <div className='content-viewclasses'>
-                    {semester}
-                    
-                    {/* <Courses />
-                    <Courses />
-                    <Courses />
-                    <Courses /> */}
-            </div>
-        </div>
+        <div className='roomres-content'>
+        <h1>Discover Classes</h1>
+        <Courses />
+    </div>
 );
 }
