@@ -8,15 +8,26 @@ import { MdOutlineClass } from "react-icons/md";
 import { IoBodySharp } from "react-icons/io5";
 import { BiLogOut } from "react-icons/bi";
 import { RiReservedFill } from "react-icons/ri";
+import { GrUserAdmin } from "react-icons/gr";
 import '../assets/styling/NavBar.css';
 import Logo from "../assets/images/logo.png";
 import ProfileImg from "../assets/images/profile-img.png";
+import { useSelector, useDispatch } from 'react-redux'
+import { setUserDetails } from '../reducers/userSlice';
+
+
 
 export default function NavBar(){
+    
+    const username = useSelector((state) => state.user.username)
+    const usertype = useSelector((state) => state.user.userType)
 
+
+    const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const handleLogout = () => {
+        dispatch(setUserDetails({type: "LOG_OUT"}))
         navigate("/");
     }
 
@@ -30,7 +41,7 @@ export default function NavBar(){
 
             <div>
                 <ul>
-                    <li className='sidebar-links'>
+                        <li className='sidebar-links'>
                             <IoHomeSharp className='sidebar-icons'/>
                             <a href='/home'>Home</a>
                         </li>
@@ -46,18 +57,15 @@ export default function NavBar(){
                             <RiReservedFill  className='sidebar-icons'/>
                             <a href='/roomreservations'>Room Reservations</a>
                         </li>
-                        <li className='sidebar-links'>
-                            <IoBodySharp   className='sidebar-icons'/>
-                            <a href='/userinfo'>User Information</a>
-                        </li>
+                        {usertype === "ADMIN" ? <li className='sidebar-links'><GrUserAdmin className='sidebar-icons'/><a href='/admin'>Modify Rooms</a></li> : null}
                 </ul>
             </div>
             
             <div className='sidebar-profile'>
                 <img className='profile-img' src = {ProfileImg} alt='' />
                 <div className='profile-content'>
-                    <h2>{EXAMPLE_STUDENT.Fname} {EXAMPLE_STUDENT.Lname}</h2>
-                    <h2>{EXAMPLE_STUDENT.role}</h2>
+                    <h2>{username}</h2>
+                    <h2>{usertype}</h2>
                 </div>
                 <IconContext.Provider value={{ className: "sidebar-logout" }}>
                     <BiLogOut title='Sign Out' size={60} onClick={handleLogout}/>

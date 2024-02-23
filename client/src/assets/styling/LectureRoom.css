@@ -18,19 +18,29 @@
     min-height: 20vh;
 }
 
+.green-background{
+    background-color: lightgreen;
+}
+
+.red-background{
+    background-color: red;
+}
+
+
 .lecroom-info{
     font-size: small;
     position: absolute;
     top: -30px; /* Adjust the distance from the button */
     left: 50%;
-    transform: translateX(90%);
+    transform: translate(50%);
+
     background-color: grey;
     color: #fff;
     padding: 10px;
     border: solid black;
     border-radius: 20px;
     opacity: 0;
-    visibility: hidden;
+    visibility: visible;
     transition: opacity 0.3s;
 }
 
