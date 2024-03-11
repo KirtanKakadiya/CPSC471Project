@@ -6,13 +6,31 @@ USE CPSC471;
 CREATE TABLE PERSON (
    id int NOT NULL,
    PRIMARY KEY (id),
-   f_name varchar(50),
+   f_name varchar(50) NOT NULL,
    m_name varchar(50),
-   l_name varchar(50),
+   l_name varchar(50) NOT NULL,
    phone_number varchar(20),
-   email varchar(50)
+   email varchar(50) UNIQUE NOT NULL,
+   password varchar(50) NOT NULL
 );
 
+CREATE TABLE STUDENT(
+    student_id int NOT NULL,
+    PRIMARY KEY (student_id),
+    FOREIGN KEY (student_id) REFERENCES PERSON (id)
+);
+
+CREATE TABLE PROFESSOR(
+    professor_id int NOT NULL,
+    PRIMARY KEY (professor_id),
+    FOREIGN KEY (professor_id) REFERENCES PERSON (id)
+);
+
+CREATE TABLE ADMINISTRATOR(
+    admin_id int NOT NULL,
+    PRIMARY KEY (admin_id),
+    FOREIGN KEY (admin_id) REFERENCES PERSON (id)
+)
 
 CREATE TABLE ROOM (
    room_id varchar(15) NOT NULL,
@@ -96,9 +114,9 @@ USE CPSC471;
 
 
 INSERT INTO PERSON (id, f_name, m_name, l_name, phone_number, email) VALUES
-   (1, 'Kartik', NULL, 'Sharma', '123-456-7890', 'thisisme@gmail.com'),
-   (2, 'Kirtan', NULL, 'Kakadiya', '123-456-7890', 'thisisntme@gmail.com'),
-   (3, 'Nathaniel', NULL, 'Dafoe', '123-456-7890', 'thisismaybeme@gmail.com');
+   (1, 'student1', NULL, 'Sharma', '123-456-7890', 'thisisme@gmail.com', "student1"),
+   (2, 'student2', NULL, 'Kakadiya', '123-456-7890', 'thisisntme@gmail.com', "student2"),
+   (3, 'student3', NULL, 'Dafoe', '123-456-7890', 'thisismaybeme@gmail.com', "student3"),;
 
 
 INSERT INTO ROOM (room_id, created_by, capacity) VALUES
