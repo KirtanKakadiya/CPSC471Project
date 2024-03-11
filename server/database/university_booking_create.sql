@@ -100,7 +100,7 @@ CREATE TABLE CLASS_ROOM (
 );
 
 
-CREATE TABLE EVENT (
+CREATE TABLE BOOKING (
    start_ DATETIME NOT NULL,
    end_ DATETIME NOT NULL,
    held_in varchar(15),
@@ -156,7 +156,7 @@ INSERT INTO CLASS_ROOM (room_id, individual_plugins, board_type, projector) VALU
    ('SA 120', 1, 1, 1);
 
 
-INSERT INTO EVENT (start_, end_, held_in, approved_by, scheduled_by) VALUES
+INSERT INTO BOOKING (start_, end_, held_in, approved_by, scheduled_by) VALUES
    ('2024-03-07 16:00:00', '2024-03-07 18:00:00', 'ICT 102', 1, 2),
    ('2024-04-12 16:00:00', '2024-04-12 18:00:00', 'ICT 102', 1, 2),
    ('2024-03-20 16:00:00', '2024-03-20 18:00:00', 'ICT 102', 1, 3);
