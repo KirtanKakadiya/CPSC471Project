@@ -4,13 +4,14 @@ USE CPSC471;
 
 
 CREATE TABLE PERSON (
-   id int NOT NULL,
+   id int NOT NULL AUTO_INCREMENT,
    PRIMARY KEY (id),
    f_name varchar(50) NOT NULL,
    m_name varchar(50),
    l_name varchar(50) NOT NULL,
    phone_number varchar(20),
    email varchar(50) UNIQUE NOT NULL,
+   usertype varchar(50) NOT NULL,
    password varchar(50) NOT NULL
 );
 
@@ -99,7 +100,7 @@ CREATE TABLE CLASS_ROOM (
 );
 
 
-CREATE TABLE EVENT (
+CREATE TABLE BOOKING (
    start_ DATETIME NOT NULL,
    end_ DATETIME NOT NULL,
    held_in varchar(15),
@@ -118,6 +119,7 @@ INSERT INTO PERSON (id, f_name, m_name, l_name, phone_number, email) VALUES
    (2, 'student2', NULL, 'Kakadiya', '123-456-7890', 'thisisntme@gmail.com', "student2"),
    (3, 'student3', NULL, 'Dafoe', '123-456-7890', 'thisismaybeme@gmail.com', "student3"),;
 
+INSERT INTO 
 
 INSERT INTO ROOM (room_id, created_by, capacity) VALUES
    ('SA 120', 1, 60),
@@ -154,7 +156,7 @@ INSERT INTO CLASS_ROOM (room_id, individual_plugins, board_type, projector) VALU
    ('SA 120', 1, 1, 1);
 
 
-INSERT INTO EVENT (start_, end_, held_in, approved_by, scheduled_by) VALUES
+INSERT INTO BOOKING (start_, end_, held_in, approved_by, scheduled_by) VALUES
    ('2024-03-07 16:00:00', '2024-03-07 18:00:00', 'ICT 102', 1, 2),
    ('2024-04-12 16:00:00', '2024-04-12 18:00:00', 'ICT 102', 1, 2),
    ('2024-03-20 16:00:00', '2024-03-20 18:00:00', 'ICT 102', 1, 3);
