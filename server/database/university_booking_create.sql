@@ -1,4 +1,6 @@
-USE room_scheduler;
+DROP DATABASE IF EXISTS CPSC471;
+CREATE DATABASE CPSC471;
+USE CPSC471;
 
 
 CREATE TABLE PERSON (
@@ -90,23 +92,7 @@ CREATE TABLE EVENT (
    FOREIGN KEY (scheduled_by) REFERENCES PERSON(id)
 );
 
-
-
-
-
--- clean.sql
--- delete and remake the db
-
-
-drop database room_scheduler;
-create database room_scheduler;
-use room_scheduler;
-
-
-
-
--- populate.sql
-USE room_scheduler;
+USE CPSC471;
 
 
 INSERT INTO PERSON (id, f_name, m_name, l_name, phone_number, email) VALUES

@@ -48,6 +48,7 @@
 
   .sidebar a:visited{
     text-decoration: none;
+    color: black
   }
 
   /* Change the color and add a hover effect */
