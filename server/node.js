@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = 3001
 
@@ -10,6 +11,7 @@ const courseController = require('./controllers/courses.js');
 const bookingController = require('./controllers/booking.js');
 // const databaseConnection = require('./database/model.js');
 
+app.user(cors());
 app.use(express.json());
 
 //Routes
