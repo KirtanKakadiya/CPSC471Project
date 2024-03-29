@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const databaseConnection = require('../database/model.js');
 
+//1.0 Get user /user/getuser
 router.get('/getuser', (req, res) => {
     const {email, password} = req.body;
 
@@ -18,6 +19,7 @@ router.get('/getuser', (req, res) => {
     });
 });
 
+//2.0 Adding user /user/adduser
 router.post('/adduser', (req, res) => {
     const {f_name, m_name, l_name, phone_number, email, password} =  req.body;
     if(m_name = "") m_name = NULL;
@@ -36,6 +38,7 @@ router.post('/adduser', (req, res) => {
     })
 })
 
+//3.0 Admin add user /user/adminadduser
 router.post('/adminadduser', (req, res) => {
     const {f_name, m_name, l_name, phone_number, email, password, usertype} =  req.body;
     if(m_name = "") m_name = NULL;
@@ -54,6 +57,7 @@ router.post('/adminadduser', (req, res) => {
     })
 })
 
+//4.0 Admin updates user type /user/adminmodifyusertype
 router.post('/adminmodifyusertype', (req, res) => {
     const { email, usertype} =  req.body;
 

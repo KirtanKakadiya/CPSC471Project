@@ -37,6 +37,7 @@ CREATE TABLE ROOM (
    room_id varchar(15) NOT NULL,
    created_by int,
    capacity int,
+   room_type = VARCHAR(255) NOT NULL,
    PRIMARY KEY (room_id),
    FOREIGN KEY (created_by) REFERENCES PERSON(id)
 );
@@ -62,7 +63,7 @@ CREATE TABLE ENROLLED_IN (
    person_id int NOT NULL,
    course_id varchar(10) NOT NULL,
    section_id int NOT NULL,
-   FOREIGN KEY (person_id) REFERENCES PERSON(id),
+   FOREIGN KEY (person_id) REFERENCES STUDENT(student_id),
    FOREIGN KEY (course_id, section_id) REFERENCES COURSE(course_id, section_id),
    PRIMARY KEY (person_id, course_id, section_id)
 );
@@ -72,7 +73,7 @@ CREATE TABLE TEACHES (
    person_id int NOT NULL,
    course_id varchar(10) NOT NULL,
    section_id int NOT NULL,
-   FOREIGN KEY (person_id) REFERENCES PERSON(id),
+   FOREIGN KEY (person_id) REFERENCES PROFESSOR(professor_id),
    FOREIGN KEY (course_id, section_id) REFERENCES COURSE(course_id, section_id),
    PRIMARY KEY (person_id, course_id, section_id)
 );
@@ -91,6 +92,15 @@ CREATE TABLE LECTURE_HALL (
 
 
 CREATE TABLE CLASS_ROOM (
+   room_id varchar(15),
+   PRIMARY KEY (room_id),
+   FOREIGN KEY (room_id) REFERENCES ROOM(room_id),
+   individual_plugins BOOLEAN,
+   board_type BOOLEAN,
+   projector BOOLEAN
+);
+
+CREATE TABLE CONFERENCE_ROOM (
    room_id varchar(15),
    PRIMARY KEY (room_id),
    FOREIGN KEY (room_id) REFERENCES ROOM(room_id),
@@ -119,14 +129,13 @@ INSERT INTO PERSON (id, f_name, m_name, l_name, phone_number, email) VALUES
    (2, 'student2', NULL, 'Kakadiya', '123-456-7890', 'thisisntme@gmail.com', "student2"),
    (3, 'student3', NULL, 'Dafoe', '123-456-7890', 'thisismaybeme@gmail.com', "student3"),;
 
-INSERT INTO 
 
-INSERT INTO ROOM (room_id, created_by, capacity) VALUES
-   ('SA 120', 1, 60),
-   ('TFDL 251', 1, 4),
-   ('TFDL 106', 1, 4),
-   ('ICT 102', 1, 250),
-   ('ENG 60', 1, 251);
+INSERT INTO ROOM (room_id, created_by, capacity, room_type) VALUES
+   ('SA 120', 1, 60, "Classroom"),
+   ('TFDL 251', 1, 4, "Conference room"),
+   ('TFDL 106', 1, 4, "Conference room"),
+   ('ICT 102', 1, 250, "Lecture Hall"),
+   ('ENG 60', 1, 251, "Lecture Hall");
 
 
 INSERT INTO COURSE (course_id, section_id, created_by, class_size, start_time, end_time, days_, taught_in) VALUES
@@ -155,6 +164,11 @@ INSERT INTO LECTURE_HALL (room_id, individual_plugins, podium_id, podium_passwor
 INSERT INTO CLASS_ROOM (room_id, individual_plugins, board_type, projector) VALUES
    ('SA 120', 1, 1, 1);
 
+
+INSERT INTO CONFERENCE_ROOM(room_id, individual_plugins, board_type, projector){
+   ('TFDL 251', 0, 'abc123efg', 1234),
+   ('TFDL 102', 0, 'hij456lmn', 0001);
+}
 
 INSERT INTO BOOKING (start_, end_, held_in, approved_by, scheduled_by) VALUES
    ('2024-03-07 16:00:00', '2024-03-07 18:00:00', 'ICT 102', 1, 2),
