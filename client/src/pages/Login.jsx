@@ -10,9 +10,6 @@ import { setUserDetails } from '../reducers/userSlice';
 
 const EXAMPLE_USER = "student";
 const EXAMPLE_PASS = "password";
-const EXAMPLE_STUDENT = new Student(1234, "Alvin", "C.", "Munk");
-export{ EXAMPLE_STUDENT }; 
-
 
 export default function LoginPage(){
 
