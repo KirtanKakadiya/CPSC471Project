@@ -74,3 +74,5 @@ router.post('/adminmodifyusertype', (req, res) => {
     
     })
 })
+
+module.exports = router;
