@@ -5,7 +5,7 @@ const databaseConnection = require('../database/model.js');
 router.get('/getuser', (req, res) => {
     const {email, password} = req.body;
 
-    databaseConnection.query('SELECT id, f_name, m_name, l_name, phone_number, email, usertype FROM PERSON WHERE email = ? AND password = ?',[email, password], (err, result) => {
+    databaseConnection.query('SELECT id, f_name, m_name, l_name, phone_number, email, FROM PERSON WHERE email = ? AND password = ?',[email, password], (err, result) => {
         if(err) {
             return res.status(500).send('Internal Server Error');
         }
@@ -22,7 +22,7 @@ router.post('/adduser', (req, res) => {
     const {f_name, m_name, l_name, phone_number, email, password} =  req.body;
     if(m_name = "") m_name = NULL;
 
-    databaseConnection.query('INSERT INTO PERSON (f_name, m_name, l_name, phone_number, email, password, usertype)  VALUES (?, ?, ?, ?, ?, ?, ?)', [f_name, m_name, l_name, phone_number, email, password, "student"], (req, res) => {
+    databaseConnection.query('INSERT INTO PERSON (f_name, m_name, l_name, phone_number, email, password)  VALUES (?, ?, ?, ?, ?, ?, ?)', [f_name, m_name, l_name, phone_number, email, password, "student"], (req, res) => {
         if(err) {
             return res.status(500).send('Internal Server Error');
         }
@@ -40,7 +40,7 @@ router.post('/adminadduser', (req, res) => {
     const {f_name, m_name, l_name, phone_number, email, password, usertype} =  req.body;
     if(m_name = "") m_name = NULL;
 
-    databaseConnection.query('INSERT INTO PERSON (f_name, m_name, l_name, phone_number, email, password, usertype)  VALUES (?, ?, ?, ?, ?, ?, ?)', [f_name, m_name, l_name, phone_number, email, password,usertype], (req, res) => {
+    databaseConnection.query('INSERT INTO PERSON (f_name, m_name, l_name, phone_number, email, password)  VALUES (?, ?, ?, ?, ?, ?, ?)', [f_name, m_name, l_name, phone_number, email, password,usertype], (req, res) => {
         if(err) {
             return res.status(500).send('Internal Server Error');
         }

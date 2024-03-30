@@ -11,7 +11,6 @@ CREATE TABLE PERSON (
    l_name varchar(50) NOT NULL,
    phone_number varchar(20),
    email varchar(50) UNIQUE NOT NULL,
-   usertype varchar(50) NOT NULL,
    password varchar(50) NOT NULL
 );
 
@@ -114,12 +113,27 @@ CREATE TABLE BOOKING (
 USE CPSC471;
 
 
-INSERT INTO PERSON (id, f_name, m_name, l_name, phone_number, email) VALUES
-   (1, 'student1', NULL, 'Sharma', '123-456-7890', 'thisisme@gmail.com', "student1"),
-   (2, 'student2', NULL, 'Kakadiya', '123-456-7890', 'thisisntme@gmail.com', "student2"),
-   (3, 'student3', NULL, 'Dafoe', '123-456-7890', 'thisismaybeme@gmail.com', "student3"),;
+INSERT INTO PERSON (id, f_name, m_name, l_name, phone_number, email, password) VALUES
+   (1, 'student1', NULL, 'Sharma', '123-456-7890', 'thisisme@gmail.com', 'password1'),
+   (2, 'student2', NULL, 'Kakadiya', '123-456-7890', 'thisisntme@gmail.com', 'password2'),
+   (3, 'student3', NULL, 'Dafoe', '123-456-7890', 'thisismaybeme@gmail.com', 'password3'),
+   (4, 'prof1', NULL, 'test1', '123-741-8520', 'email1@gmail.com', 'password4'),
+   (5, 'prof2', NULL, 'test2', '123-741-8521', 'email2@gmail.com', 'password4'),
+   (6, 'admin1', NULL, 'test3', '123-741-8522', 'email3@gmail.com', 'password5'),
+   (7, 'admin2', NULL, 'test4', '123-741-8523', 'email4@gmail.com', 'password6');
 
-INSERT INTO 
+INSERT INTO STUDENT (student_id) VALUES
+   (1),
+   (2),
+   (3);
+
+INSERT INTO PROFESSOR (professor_id) VALUES
+   (4),
+   (5);
+
+INSERT INTO ADMINISTRATOR (admin_id) VALUES
+   (6),
+   (7);
 
 INSERT INTO ROOM (room_id, created_by, capacity) VALUES
    ('SA 120', 1, 60),
