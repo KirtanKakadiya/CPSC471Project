@@ -20,7 +20,7 @@ router.get('/getuser', (req, res) => {
 
 router.post('/adduser', (req, res) => {
     const {f_name, m_name, l_name, phone_number, email, password} =  req.body;
-    if(m_name = "") m_name = NULL;
+    if(m_name === "") m_name = NULL;
 
     databaseConnection.query('INSERT INTO PERSON (f_name, m_name, l_name, phone_number, email, password, usertype)  VALUES (?, ?, ?, ?, ?, ?, ?)', [f_name, m_name, l_name, phone_number, email, password, "student"], (req, res) => {
         if(err) {
@@ -38,7 +38,7 @@ router.post('/adduser', (req, res) => {
 
 router.post('/adminadduser', (req, res) => {
     const {f_name, m_name, l_name, phone_number, email, password, usertype} =  req.body;
-    if(m_name = "") m_name = NULL;
+    if(m_name === "") m_name = NULL;
 
     databaseConnection.query('INSERT INTO PERSON (f_name, m_name, l_name, phone_number, email, password, usertype)  VALUES (?, ?, ?, ?, ?, ?, ?)', [f_name, m_name, l_name, phone_number, email, password,usertype], (req, res) => {
         if(err) {
