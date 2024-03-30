@@ -90,6 +90,7 @@
 
   .sidebar-logout:hover{
     background-color: lightblue;
+    border-radius: 10px;
   }
 
 

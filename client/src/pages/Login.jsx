@@ -25,7 +25,7 @@ export default function LoginPage(){
             setSuccessText("Incorrect username or password");
         }
         else{
-            dispatch(setUserDetails({type: "LOG_IN", payload: {username: "student", userType : "ADMIN"}}))
+            dispatch(setUserDetails({type: "LOG_IN", payload: {username: "student", userType : "sad"}}))
             navigate("/home", {state:{userName : username}});
             
         }
