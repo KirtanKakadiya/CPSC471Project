@@ -25,6 +25,9 @@
     color: white;
     font-size: large;
     font-family: "Poppins";
+    width: 100%;
+    height: 50%;
+    margin-top: 10%;
 }
 
 .addrooombtn:hover{ 

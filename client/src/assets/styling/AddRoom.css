@@ -9,6 +9,46 @@
 
 
 .location-form-addbook{
-    padding-top: 5%;
+    position: relative;
+    display: grid;
+    grid-template-columns: auto auto;
+    margin-bottom: 5%;
 }
 
+.text-inline{
+    position: relative;
+    display: grid;
+    grid-template-columns: 20% auto;
+    margin-bottom: 2.5%;
+}
+
+.form{
+    width: 50%;
+    position: absolute;
+    right: 0;
+    
+    
+}
+
+.input-txt{
+    width: fit-content;
+}
+
+.input-val{
+    position: absolute;
+    width: 50%;
+    height: auto;
+    outline: none;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    text-align: left;
+    padding-left: 2vh;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    font-size: 16px;
+    margin-left: 0;
+    width: calc(100% 32px); /* Adjust width to accommodate the eye icon */
+    padding-right: 32px; /* Adjust padding to accommodate the eye icon */
+    right: 0;
+
+}
