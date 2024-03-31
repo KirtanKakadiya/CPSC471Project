@@ -1,0 +1,14 @@
+.content-wrapper-addroom{
+    margin-right: 10%;
+    margin-left: 5vh; 
+    display: grid;
+    flex-grow: 1;
+    padding: 20px;
+    clear: both;
+}
+
+
+.location-form-addbook{
+    padding-top: 5%;
+}
+

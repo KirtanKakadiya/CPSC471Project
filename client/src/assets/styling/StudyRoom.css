@@ -41,7 +41,7 @@
     border: solid black;
     border-radius: 20px;
     opacity: 0;
-    visibility: visible;
+    visibility:hidden;
     transition: opacity 0.3s;
 }
 .room-button:hover .room-info{

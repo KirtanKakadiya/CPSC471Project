@@ -14,7 +14,7 @@ export default function LectureRoom(props){
         <div className='content-wrapper-lecrooms'>
             <button className={`room-button ${available === "true" ? 'green-background' : 'red-background'}`}>
                 Lecture : {roomNumber}
-                <div className='lecroom-info'>
+                <div className='room-info'>
                     Capacity : {capacity}
                     <button className='button-schedule'>
                         Click to Schedule
