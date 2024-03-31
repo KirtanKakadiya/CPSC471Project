@@ -175,107 +175,132 @@ export default function AddRoom(){
                 Admin Add Room
             </h1>
 
-            <div>
+            <div className='usertype'>
                 <h2>Username: {username}</h2>
             </div>
             <div className='location-form-addbook'>
                 <h2>Select Room Type</h2>
-                <Box width={500}>
-                    <FormControl>
-                        <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={roomType}
-                        onChange={(event) =>setRoomType(event.target.value)}
-                        >
-                        <MenuItem value="Classroom">Classroom</MenuItem>
-                        <MenuItem value="Lecture Hall">Lecture Hall</MenuItem>
-                        <MenuItem value="Conference Room">Conference Room</MenuItem>
-                        </Select>
-                    </FormControl>
-                </Box>
+                <div className='form'>
+                    <Box>
+                        <FormControl fullWidth>
+                            <InputLabel id="demo-simple-select-label">Room Type</InputLabel>
+                            <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={roomType}
+                            onChange={(event) =>setRoomType(event.target.value)}
+                            >
+                            <MenuItem value="Classroom">Classroom</MenuItem>
+                            <MenuItem value="Lecture Hall">Lecture Hall</MenuItem>
+                            <MenuItem value="Conference Room">Conference Room</MenuItem>
+                            </Select>
+                        </FormControl>
+                    </Box>
+                </div>
+                
             </div>
 
 
-            <div>
-                <h2>Capacity</h2>
-                <input type='number' value={capacity} onChange={(event) => setCapacity(event.target.value)} />
+            <div className='text-inline'>
+                <h2 className='input-txt'>Capacity</h2>
+                <input className = "input-val" type='number' placeholder='Please enter a capacity' value={capacity} onChange={(event) => setCapacity(event.target.value)} />
             </div>
 
-            <div>
-                <h2>Room Name</h2>
-                <input value={roomName} onChange={(event) => setRoomName(event.target.value)} />
+            <div className='text-inline'>
+                <h2 className='input-txt'>Room Name</h2>
+                <input className = "input-val" placeholder = "Please enter a room name" value={roomName} onChange={(event) => setRoomName(event.target.value)} />
             </div>
             {roomType === "Classroom" || roomType === "Conference Room"? 
+                <div>
                     <div className='location-form-addbook'>
-                    <h2>Individual Plugins</h2>
-                    <Box width={500}>
-                        <FormControl>
-                            <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            value={indplugs}
-                            onChange={(event) =>setIndPlugs(event.target.value)}
-                            >
-                            <MenuItem value={1}>Yes</MenuItem>
-                            <MenuItem value={0}>No</MenuItem>
-                            </Select>
-                        </FormControl>
-                    </Box>
-                    <h2>Board</h2>
-                    <Box width={500}>
-                        <FormControl>
-                            <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            value={board}
-                            onChange={(event) =>setBoard(event.target.value)}
-                            >
-                            <MenuItem value={1}>Yes</MenuItem>
-                            <MenuItem value={0}>No</MenuItem>
-                            </Select>
-                        </FormControl>
-                    </Box>
-                    <h2>Projector</h2>
-                    <Box width={500}>
-                        <FormControl>
-                            <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            value={projector}
-                            onChange={(event) =>setProjector(event.target.value)}
-                            >
-                            <MenuItem value={1}>Yes</MenuItem>
-                            <MenuItem value={0}>No</MenuItem>
-                            </Select>
-                        </FormControl>
-                    </Box>
+                        <h2>Individual Plugins</h2>
+                        <div className='form'>
+                            <Box>
+                                <FormControl fullWidth>
+                                    <Select
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    value={indplugs}
+                                    onChange={(event) =>setIndPlugs(event.target.value)}
+                                    >
+                                    <MenuItem value={1}>Yes</MenuItem>
+                                    <MenuItem value={0}>No</MenuItem>
+                                    </Select>
+                                </FormControl>
+                            </Box>
+                        </div>
+                    </div>
+                    <div className='location-form-addbook'>
+                        <h2>Board</h2>
+                        <div className='form'>
+                            <Box>
+                                <FormControl fullWidth>
+                                    <Select
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    value={board}
+                                    onChange={(event) =>setBoard(event.target.value)}
+                                    >
+                                    <MenuItem value={1}>Yes</MenuItem>
+                                    <MenuItem value={0}>No</MenuItem>
+                                    </Select>
+                                </FormControl>
+                            </Box>
+                        </div>
+                    </div>
+                    <div className='location-form-addbook'>
+                        <h2>Projector</h2>
+                        <div className='form'>
+                            <Box>
+                                <FormControl fullWidth>
+                                    <Select
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    value={projector}
+                                    onChange={(event) =>setProjector(event.target.value)}
+                                    >
+                                    <MenuItem value={1}>Yes</MenuItem>
+                                    <MenuItem value={0}>No</MenuItem>
+                                    </Select>
+                                </FormControl>
+                            </Box>
+                        </div>
+                    </div>
+                </div>
+                :(roomType === "Lecture Hall" ? 
+                <div>
+                    <div className='location-form-addbook'>
+                        <h2>Individual Plugins</h2>
+                        <div className='form'>
+                            <Box>
+                                <FormControl fullWidth>
+                                    <Select
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    value={indplugs}
+                                    onChange={(event) =>setIndPlugs(event.target.value)}
+                                    >
+                                    <MenuItem value={1}>Yes</MenuItem>
+                                    <MenuItem value={0}>No</MenuItem>
+                                    </Select>
+                                </FormControl>
+                            </Box>
+                        </div>
+                    </div>
+                    <div className='text-inline'>
+                        <h2 className='input-txt'>Podium Password</h2>
+                        <input className = "input-val"value={podiumPass} onChange={(event) => setPodiiumPass(event.target.value)} />
+                    </div>
+                    <div className='text-inline'>
+                        <h2 className='input-txt'>Podium ID</h2>
+                        <input className = "input-val" value={podiumid} onChange={(event) => setPodiumID(event.target.value)} />
                     </div>
 
-                :(roomType === "Lecture Hall" ? 
-                    <div className='location-form-addbook'>
-                    <h2>Individual Plugins</h2>
-                    <Box width={500}>
-                        <FormControl>
-                            <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            value={indplugs}
-                            onChange={(event) =>setIndPlugs(event.target.value)}
-                            >
-                            <MenuItem value={1}>Yes</MenuItem>
-                            <MenuItem value={0}>No</MenuItem>
-                            </Select>
-                        </FormControl>
-                    </Box>
-                    <h2>Podium Password</h2>
-                    <input value={podiumPass} onChange={(event) => setPodiiumPass(event.target.value)} />
-                    <h2>Podium ID</h2>
-                    <input value={podiumid} onChange={(event) => setPodiumID(event.target.value)} />
+                    
                 </div>
                 :null)}
             <button className='confirm-booking' onClick= {HandleBooking}>
-                Confirm your booking
+                Add Room
             </button>
             <ToastContainer/>
         </div>
