@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS ADMINISTRATOR(
 );
 
 CREATE TABLE IF NOT EXISTS ROOM(
-   room_id varchar(15) NOT NULL,
+   room_id varchar(15) UNIQUE NOT NULL,
    created_by int,
    capacity int,
    room_type VARCHAR(255) NOT NULL,
@@ -134,47 +134,56 @@ INSERT INTO STUDENT(student_id) VALUES
    (1),
    (2),
    (3);
--- INSERT INTO ROOM (room_id, created_by, capacity, room_type) VALUES
---    ('SA 120', 1, 60, "Classroom"),
---    ('TFDL 251', 1, 4, "Conference room"),
---    ('TFDL 106', 1, 4, "Conference room"),
---    ('ICT 102', 1, 250, "Lecture Hall"),
---    ('ENG 60', 1, 251, "Lecture Hall");
+INSERT INTO ROOM (room_id, created_by, capacity, room_type) VALUES
+   ('SA 120', 1, 60, "Classroom"),
+   ('TFDL 251', 1, 4, "Conference room"),
+   ('TFDL 106', 1, 4, "Conference room"),
+   ('ICT 102', 1, 250, "Lecture Hall"),
+   ('ENG 60', 1, 251, "Lecture Hall");
 
 
--- INSERT INTO COURSE (course_id, section_id, created_by, class_size, start_time, end_time, days_, taught_in) VALUES
---    ('CPSC 471', 1, 1, 100, '12:00:00', '12:50:00', 0, 'ICT 102'),
---    ('CPSC 471', 2, 1, 150, '12:00:00', '13:15:00', 1, 'ICT 102'),
---    ('MATH 211', 1, 1, 500, '12:00:00', '13:15:00', 1, 'ENG 60');
+INSERT INTO COURSE (course_id, section_id, created_by, class_size, start_time, end_time, days_, taught_in) VALUES
+   ('CPSC 471', 1, 1, 100, '12:00:00', '12:50:00', 0, 'ICT 102'),
+   ('CPSC 471', 2, 1, 150, '12:00:00', '13:15:00', 1, 'ICT 102'),
+   ('MATH 211', 1, 1, 500, '12:00:00', '13:15:00', 1, 'ENG 60');
 
 
--- INSERT INTO ENROLLED_IN (person_id, course_id, section_id) VALUES
---    (2, 'CPSC 471', 1),
+INSERT INTO ENROLLED_IN (person_id, course_id, section_id) VALUES
+   (2, 'CPSC 471', 1),
+   (2, 'CPSC 471', 2),
+   (2, 'MATH 211', 1);
+
+
+-- INSERT INTO TEACHES (person_id, course_id, section_id) VALUES
+--    (3, 'CPSC 471', 1),
 --    (2, 'CPSC 471', 2),
---    (2, 'MATH 211', 1);
+--    (1, 'MATH 211', 1);
 
 
--- -- INSERT INTO TEACHES (person_id, course_id, section_id) VALUES
--- --    (3, 'CPSC 471', 1),
--- --    (2, 'CPSC 471', 2),
--- --    (1, 'MATH 211', 1);
+INSERT INTO LECTURE_HALL (room_id, individual_plugins, podium_id, podium_password) VALUES
+   ('ICT 102', 0, 'abc123efg', 1234),
+   ('ENG 60', 0, 'hij456lmn', 0001);
 
 
--- INSERT INTO LECTURE_HALL (room_id, individual_plugins, podium_id, podium_password) VALUES
---    ('ICT 102', 0, 'abc123efg', 1234),
---    ('ENG 60', 0, 'hij456lmn', 0001);
+INSERT INTO CLASS_ROOM (room_id, individual_plugins, board_type, projector) VALUES
+   ('SA 120', 1, 1, 1);
+
+-- CREATE TABLE IF NOT EXISTS CONFERENCE_ROOM (
+--    room_id varchar(15),
+--    individual_plugins BOOLEAN,
+--    board_type BOOLEAN,
+--    projector BOOLEAN,
+--    PRIMARY KEY (room_id),
+--    FOREIGN KEY (room_id) REFERENCES ROOM(room_id),
+-- );
+INSERT INTO CONFERENCE_ROOM(room_id, individual_plugins, board_type, projector) VALUES
+   ('TFDL 251', 0, 1, 1),
+   ('TFDL 106', 1,1,1);
 
 
--- INSERT INTO CLASS_ROOM (room_id, individual_plugins, board_type, projector) VALUES
---    ('SA 120', 1, 1, 1);
+INSERT INTO BOOKING (start_, end_, held_in, approved_by, scheduled_by) VALUES
+   ('2024-03-07 16:00:00', '2024-03-07 18:00:00', 'ICT 102', 1, 2),
+   ('2024-04-12 16:00:00', '2024-04-12 18:00:00', 'ICT 102', 1, 2),
+   ('2024-03-20 16:00:00', '2024-03-20 18:00:00', 'ICT 102', 1, 3);
 
 
--- -- INSERT INTO CONFERENCE_ROOM(room_id, individual_plugins, board_type, projector) VALUES
--- --    ('TFDL 251', 0, 'abc123efg', 1234),
--- --    ('TFDL 102', 0, 'hij456lmn', 0001);
-
-
--- INSERT INTO BOOKING (start_, end_, held_in, approved_by, scheduled_by) VALUES
---    ('2024-03-07 16:00:00', '2024-03-07 18:00:00', 'ICT 102', 1, 2),
---    ('2024-04-12 16:00:00', '2024-04-12 18:00:00', 'ICT 102', 1, 2),
---    ('2024-03-20 16:00:00', '2024-03-20 18:00:00', 'ICT 102', 1, 3);

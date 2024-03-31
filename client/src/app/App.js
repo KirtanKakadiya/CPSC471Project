@@ -6,6 +6,9 @@ import DiscoverClasses from '../pages/DiscoverClasses';
 import RegisterPage from '../pages/Register';
 import RoomReservations from '../pages/RoomReservations';
 import AdminModifyRooms from '../pages/AdminModifyRooms';
+import RoomEditor from '../pages/RoomEditor';
+import AddRoom from '../pages/AddRoom';
+import BookingPage from '../pages/BookingPage';
 import Protected from './Protected';
 import {BrowserRouter, Route,Routes,ProtectedRoute } from "react-router-dom";
 import Layout from "../Layout"
@@ -30,7 +33,10 @@ function App() {
             <Route path = "/exploreclass" element = {<ExploreRoom />} />
             <Route path = "/discoverclass" element = {<DiscoverClasses />} />
             <Route path = "/roomreservations" element = {<RoomReservations />} />
-            <Route path='/admin' element = {<AdminModifyRooms />} />  
+            <Route path='/booking/:roomNumber/:capacity/:date' element = {<BookingPage />} />
+            <Route path='/admin/modifyroom' element = {<AdminModifyRooms />} />  
+            <Route path='/admin/roomeditor' element = {<RoomEditor />} /> 
+            <Route path='/admin/roomeditor/addroom' element = {<AddRoom />} /> 
           </Route>
         </Routes>
       </Protected>

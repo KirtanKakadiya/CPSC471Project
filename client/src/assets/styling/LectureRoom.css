@@ -1,5 +1,4 @@
 .content-wrapper-lecrooms{
-    margin: 5vh;
 }
 
 .lecroom-button{
@@ -45,6 +44,27 @@
 }
 
 .lecroom-button:hover .lecroom-info{
+    opacity: 1;
+    visibility: visible;
+}
+
+.room-info{
+    font-size: small;
+    position: absolute;
+    top: -30px; /* Adjust the distance from the button */
+    left: 50%;
+    transform: translate(50%);
+
+    background-color: grey;
+    color: #fff;
+    padding: 10px;
+    border: solid black;
+    border-radius: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+}
+.room-button:hover .room-info{
     opacity: 1;
     visibility: visible;
 }
