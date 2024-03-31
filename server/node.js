@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const port = 3001
+const port = 7003
 
 
 //Controllers
@@ -17,9 +17,9 @@ app.use(cors());
 
 //Routes
 app.use('/user', userController);
-// app.use('room', roomController);
+app.use('/room', roomController);
 // app.use('courses', courseController);
-// app.use('booking', bookingController);
+app.use('/booking', bookingController);
 
 app.listen(port, function(){
     console.log(`Server listening on port ${port}`);

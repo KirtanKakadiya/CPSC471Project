@@ -1,0 +1,31 @@
+.content-wrapper-booking{
+    margin-right: 10%;
+    margin-left: 5vh; 
+    display: grid;
+    flex-grow: 1;
+    padding: 20px;
+    clear: both;
+}
+
+.title{
+    
+    margin-top: 3vh;
+    color: darkblue;
+}
+
+.confirm-booking{
+    width: 100%;
+    height: 45px;
+    border-radius: 40px;
+    cursor: pointer;
+    background-color: rgba(37, 99, 235, 1);
+    color: white;
+    font-size: #333;
+    font-weight: 700;
+    margin-top: 5%;
+}
+
+.confirm-booking:hover{
+    background-color: white;
+    color: black;
+}

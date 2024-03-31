@@ -5,6 +5,7 @@
     gap: 5vh;
     margin-top: 5vh;
     margin-left: 5vh;
+    padding-right: 5vh;
 }
 
 .rooms{
@@ -15,3 +16,9 @@
 .rooms:last-child{
     margin-top: 0;
 }
+
+.location-form{
+    margin-top:2vh;
+    margin-left: 5vh;
+}
+
