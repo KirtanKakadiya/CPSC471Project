@@ -1,4 +1,3 @@
--- Active: 1670112448047@@127.0.0.1@3306@seng401
 DROP DATABASE IF EXISTS CPSC471;
 CREATE DATABASE CPSC471;
 USE CPSC471;
@@ -12,7 +11,6 @@ CREATE TABLE IF NOT EXISTS PERSON (
    l_name varchar(50) NOT NULL,
    phone_number varchar(20),
    email varchar(50) UNIQUE NOT NULL,
-   usertype varchar(50) NOT NULL,
    password varchar(50) NOT NULL
 );
 
@@ -125,15 +123,28 @@ CREATE TABLE IF NOT EXISTS BOOKING (
 -- USE CPSC471;
 
 
-INSERT INTO PERSON (id, f_name, m_name, l_name, phone_number, email, usertype, password) VALUES
-   (1, 'student1', NULL, 'Sharma', '123-456-7890', 'thisisme@gmail.com', "student", "student1"),
-   (2, 'student2', NULL, 'Kakadiya', '123-456-7890', 'thisisntme@gmail.com',"student", "student2"),
-   (3, 'student3', NULL, 'Dafoe', '123-456-7890', 'thisismaybeme@gmail.com', "student","student3");
+INSERT INTO PERSON (id, f_name, m_name, l_name, phone_number, email, password) VALUES
+   (1, 'student1', NULL, 'Sharma', '123-456-7890', 'student', 'password'),
+   (2, 'student2', NULL, 'Kakadiya', '123-456-7890', 'thisisntme@gmail.com', 'password2'),
+   (3, 'student3', NULL, 'Dafoe', '123-456-7890', 'thisismaybeme@gmail.com', 'password3'),
+   (4, 'prof1', NULL, 'test1', '123-741-8520', 'professor', 'password'),
+   (5, 'prof2', NULL, 'test2', '123-741-8521', 'email2@gmail.com', 'password4'),
+   (6, 'admin1', NULL, 'test3', '123-741-8522', 'admin', 'password'),
+   (7, 'admin2', NULL, 'test4', '123-741-8523', 'email4@gmail.com', 'password6');
 
-INSERT INTO STUDENT(student_id) VALUES
+INSERT INTO STUDENT (student_id) VALUES
    (1),
    (2),
    (3);
+
+INSERT INTO PROFESSOR (professor_id) VALUES
+   (4),
+   (5);
+
+INSERT INTO ADMINISTRATOR (admin_id) VALUES
+   (6),
+   (7);
+
 INSERT INTO ROOM (room_id, created_by, capacity, room_type) VALUES
    ('SA 120', 1, 60, "Classroom"),
    ('TFDL 251', 1, 4, "Conference room"),
