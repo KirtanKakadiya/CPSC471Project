@@ -7,14 +7,13 @@ DB_USER = process.env.DB_USER;
 DB_PASS = process.env.DB_PASSWORD;
 const sqlFilePath = './database/university_booking_create.sql';
 
-var con =  sql.createConnection({
+var databaseConnection =  sql.createConnection({
     host: DB_HOST,
     user: DB_USER,
     password: DB_PASS,
-    database: "CPSC471"
 })
 
-con.connect((err) => {
+databaseConnection.connect((err) => {
     if (err) {
       console.error('Error connecting to database:', err);
       return;
@@ -33,7 +32,7 @@ con.connect((err) => {
   
       // Execute each query
       queries.forEach(query => {
-        con.query(query, (err, results) => {
+        databaseConnection.query(query, (err, results) => {
           if (err) {
             console.error('Error executing query:', err);
             return;
@@ -46,9 +45,5 @@ con.connect((err) => {
       });
     });
   });
-// con.connect(function(err) {
-//     if (err) throw err;
-//     console.log("Connected!");
-// }); 
 
-module.exports = con;
+module.exports = databaseConnection;

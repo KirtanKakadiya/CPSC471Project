@@ -1,9 +1,11 @@
 import React from 'react'
+import { EXAMPLE_STUDENT } from '../pages/Login';
 import {useNavigate} from 'react-router-dom'
 import { IconContext } from "react-icons";
 import { IoHomeSharp } from "react-icons/io5";
 import { BsEyeglasses } from "react-icons/bs";
 import { MdOutlineClass } from "react-icons/md";
+import { IoBodySharp } from "react-icons/io5";
 import { BiLogOut } from "react-icons/bi";
 import { RiReservedFill } from "react-icons/ri";
 import { GrUserAdmin } from "react-icons/gr";
