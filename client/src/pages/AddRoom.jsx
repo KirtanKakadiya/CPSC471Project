@@ -13,6 +13,7 @@ import Select from '@mui/material/Select';
 
 export default function AddRoom(){
     const username = useSelector((state) => state.user.username)
+    const userID = useSelector((state) => state.user.userID)
     const [roomType, setRoomType] = useState("");
     const [capacity, setCapacity] = useState("");
     const [roomName, setRoomName] = useState("");
@@ -21,6 +22,8 @@ export default function AddRoom(){
     const [projector, setProjector] = useState(null);
     const [podiumid, setPodiumID] = useState(null);
     const [podiumPass, setPodiiumPass] = useState("");
+
+    console.log(userID, "ID");
 
     async function HandleBooking(){
 
@@ -49,7 +52,7 @@ export default function AddRoom(){
                 else{
                     const body = {
                         room: roomName,
-                        username: 1,
+                        username: userID,
                         capacity: capacity,
                         room_type : roomType,
                         indplugs: indplugs,

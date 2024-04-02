@@ -126,9 +126,9 @@ router.post('/getAllBooking', (req, res) => {
 
 
 router.post('/approveBooking', (req, res) => {
-    const {room, start, end} = req.body;
+    const {room, start, end, userID} = req.body;
     
-    databaseConnection.query('UPDATE BOOKING SET approved_by = 1 WHERE start_ = ? AND end_ = ? AND held_in = ?',[start,end,room], (err, results) => {
+    databaseConnection.query('UPDATE BOOKING SET approved_by = ? WHERE start_ = ? AND end_ = ? AND held_in = ?',[userID, start,end,room], (err, results) => {
         
         if(err) {
             console.log(err);
