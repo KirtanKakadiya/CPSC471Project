@@ -4,17 +4,52 @@ const databaseConnection = require('../database/model.js');
 
 //1.0 Get user /user/getuser
 router.get('/getuser', (req, res) => {
-    const {email, password} = req.body;
-
-    databaseConnection.query('SELECT id, f_name, m_name, l_name, phone_number, email, FROM PERSON WHERE email = ? AND password = ?',[email, password], (err, result) => {
+    const {email, password} = req.query;
+    
+    databaseConnection.query('SELECT id, f_name, m_name, l_name, phone_number, email FROM PERSON WHERE email = ? AND password = ?',[email, password], (err, result) => {
         if(err) {
+            console.log(err);
             return res.status(500).send('Internal Server Error');
         }
-        else if(result.affectedRows === 0){
+        else if(result.length === 0){
             return res.status(401).send('Unauthorized');
         }
-        else{
-            return res.status(200).json(result);
+        else {
+            databaseConnection.query('SELECT student_id FROM STUDENT WHERE student_id = ?',[result[0].id], (err, typeRes) => {
+                if(err) {
+                    console.log(err);
+                    return res.status(500).send('Internal Server Error');
+                }
+                else if(typeRes.length === 1){
+                    result[0].userType = "STUDENT";
+                    return res.status(200).json(result[0]);
+                }
+                else {
+                    databaseConnection.query('SELECT professor_id FROM PROFESSOR WHERE professor_id = ?',[result[0].id], (err, typeRes) => {
+                        if(err) {
+                            console.log(err);
+                            return res.status(500).send('Internal Server Error');
+                        }
+                        else if(typeRes.length === 1){
+                            result[0].userType = "PROFESSOR";
+                            console.log(result);
+                            return res.status(200).json(result[0]);
+                        }
+                        else {
+                            databaseConnection.query('SELECT admin_id FROM ADMINISTRATOR WHERE admin_id = ?',[result[0].id], (err, typeRes) => {
+                                if(err) {
+                                    console.log(err);
+                                    return res.status(500).send('Internal Server Error');
+                                }
+                                else if(typeRes.length === 1){
+                                    result[0].userType = "ADMIN";
+                                    return res.status(200).json(result[0]);
+                                }
+                            });
+                        }
+                    });
+                }
+            });
         }
     });
 });
@@ -24,7 +59,7 @@ router.post('/adduser', (req, res) => {
     const {f_name, m_name, l_name, phone_number, email, password} =  req.body;
     if(m_name = "") m_name = NULL;
 
-    databaseConnection.query('INSERT INTO PERSON (f_name, m_name, l_name, phone_number, email, password)  VALUES (?, ?, ?, ?, ?, ?, ?)', [f_name, m_name, l_name, phone_number, email, password, "student"], (req, res) => {
+    databaseConnection.query('INSERT INTO PERSON (f_name, m_name, l_name, phone_number, email, password)  VALUES (?, ?, ?, ?, ?, ?, ?)', [f_name, m_name, l_name, phone_number, email, password, "student"], (req, result) => {
         if(err) {
             return res.status(500).send('Internal Server Error');
         }
@@ -43,7 +78,7 @@ router.post('/adminadduser', (req, res) => {
     const {f_name, m_name, l_name, phone_number, email, password, usertype} =  req.body;
     if(m_name = "") m_name = NULL;
 
-    databaseConnection.query('INSERT INTO PERSON (f_name, m_name, l_name, phone_number, email, password)  VALUES (?, ?, ?, ?, ?, ?, ?)', [f_name, m_name, l_name, phone_number, email, password,usertype], (req, res) => {
+    databaseConnection.query('INSERT INTO PERSON (f_name, m_name, l_name, phone_number, email, password)  VALUES (?, ?, ?, ?, ?, ?, ?)', [f_name, m_name, l_name, phone_number, email, password,usertype], (req, result) => {
         if(err) {
             return res.status(500).send('Internal Server Error');
         }

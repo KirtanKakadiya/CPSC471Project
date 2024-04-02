@@ -1,4 +1,3 @@
--- Active: 1670112448047@@127.0.0.1@3306@seng401
 DROP DATABASE IF EXISTS CPSC471;
 CREATE DATABASE CPSC471;
 USE CPSC471;
@@ -125,12 +124,12 @@ CREATE TABLE IF NOT EXISTS BOOKING (
 
 
 INSERT INTO PERSON (id, f_name, m_name, l_name, phone_number, email, password) VALUES
-   (1, 'student1', NULL, 'Sharma', '123-456-7890', 'thisisme@gmail.com', 'password1'),
+   (1, 'student1', NULL, 'Sharma', '123-456-7890', 'student', 'password'),
    (2, 'student2', NULL, 'Kakadiya', '123-456-7890', 'thisisntme@gmail.com', 'password2'),
    (3, 'student3', NULL, 'Dafoe', '123-456-7890', 'thisismaybeme@gmail.com', 'password3'),
-   (4, 'prof1', NULL, 'test1', '123-741-8520', 'email1@gmail.com', 'password4'),
+   (4, 'prof1', NULL, 'test1', '123-741-8520', 'professor', 'password'),
    (5, 'prof2', NULL, 'test2', '123-741-8521', 'email2@gmail.com', 'password4'),
-   (6, 'admin1', NULL, 'test3', '123-741-8522', 'email3@gmail.com', 'password5'),
+   (6, 'admin1', NULL, 'test3', '123-741-8522', 'admin', 'password'),
    (7, 'admin2', NULL, 'test4', '123-741-8523', 'email4@gmail.com', 'password6');
 
 INSERT INTO STUDENT (student_id) VALUES

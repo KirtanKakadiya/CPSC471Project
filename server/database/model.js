@@ -13,7 +13,7 @@ var databaseConnection =  sql.createConnection({
     password: DB_PASS,
 })
 
-con.connect((err) => {
+databaseConnection.connect((err) => {
     if (err) {
       console.error('Error connecting to database:', err);
       return;
@@ -32,7 +32,7 @@ con.connect((err) => {
   
       // Execute each query
       queries.forEach(query => {
-        con.query(query, (err, results) => {
+        databaseConnection.query(query, (err, results) => {
           if (err) {
             console.error('Error executing query:', err);
             return;
@@ -45,9 +45,5 @@ con.connect((err) => {
       });
     });
   });
-// con.connect(function(err) {
-//     if (err) throw err;
-//     console.log("Connected!");
-// }); 
 
 module.exports = databaseConnection;
