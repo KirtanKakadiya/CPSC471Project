@@ -7,7 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 export default function BookingPage(){
     const username = useSelector((state) => state.user.username)
-
+    const userID = useSelector((state) => state.user.userID)
     const {roomNumber, capacity, date} = useParams();
     let endDate=  "";
     
@@ -31,7 +31,7 @@ export default function BookingPage(){
             room: roomNumber,
             start: date,
             end: endDate,
-            name : 2,
+            name : userID,
         }
         const response = await fetch("http://localhost:7003/booking/bookroom", {
             method: "POST",

@@ -2,6 +2,7 @@ import "../assets/styling/AdminModifyRooms.css"
 import React from 'react'
 import DataTable from "react-data-table-component"
 import { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { IoMdCheckmark } from "react-icons/io";
 import { FaXmark } from "react-icons/fa6";
 import { ToastContainer, toast } from 'react-toastify';
@@ -10,6 +11,7 @@ import { MdDelete } from "react-icons/md";
 
 
 export default function AdminModifyRooms() {
+    const userID = useSelector((state) => state.user.userID)
     const [data, setData] = useState();
     const [loading, setLoading] = useState(false);
     const [perPage, setPerPage] = useState(10);
@@ -63,6 +65,7 @@ export default function AdminModifyRooms() {
             room: room,
             start: start,
             end: end,
+            userID: userID
         }
         async function getData() {
             const response = await fetch("http://localhost:7003/booking/approveBooking", {

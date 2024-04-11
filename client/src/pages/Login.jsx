@@ -12,13 +12,18 @@ export default function LoginPage(){
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [email, setUsername] = useState("");
+    const [email, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [successText, setSuccessText] = useState("");
 
     async function HandleLogin(event) {
+    async function HandleLogin(event) {
 
         if(password === "" || email === ""){
+        if(password === "" || email === ""){
             setSuccessText("Incorrect username or password");
+            return;
+        }
             return;
         }
         event.preventDefault();
@@ -59,8 +64,10 @@ export default function LoginPage(){
         <div className='login-page'>
             <div className='wrapper'>
             <form onSubmit={HandleLogin}>
+            <form onSubmit={HandleLogin}>
                 <h1>Login</h1>
                 <div className="input-box">
+                    <input  value = {email} type="text" placeholder='Username' onChange={(event) => setUsername(event.target.value)} />
                     <input  value = {email} type="text" placeholder='Username' onChange={(event) => setUsername(event.target.value)} />
                     <FaUser className='login-icon'/>
                 </div>
