@@ -76,6 +76,49 @@ router.post('/getPotentialRooms', (req, res) => {
 
 })
 
+router.post('/getstudentschedule', (req, res) => {
+    const{student_id} = req.body;
+    let courses = [];
+    databaseConnection.query( 'SELECT DISTINCT COURSE.course_id, COURSE.section_id, start_time, end_time, days_, taught_in, TEACHES.person_id, f_name, l_name\
+     FROM ENROLLED_IN JOIN COURSE ON ENROLLED_IN.course_id = COURSE.course_id AND ENROLLED_IN.section_id = COURSE.section_id\
+     JOIN TEACHES ON COURSE.course_id = TEACHES.course_id\
+     JOIN PERSON on TEACHES.person_id = PERSON.id\
+     WHERE ENROLLED_IN.person_id = ?', [student_id], (err, result) => {
+        if(err) {
+            console.log(err);
+            return res.status(500).send('Internal Server Error');
+        }
+        else if(result.affectedRows === 0)
+            return res.status(401).send('Couldnt find courses');
+        else{
+            result.forEach((row) => courses.push(row));   
+            //console.log(courses);
+            return res.status(200).json(courses);
+        }
+    });
+});
+
+router.post('/getprofinfo', (req, res) => {
+    const{person_id} = req.body;
+    let profs = [];
+    databaseConnection.query('SELECT DISTINCT PERSON.f_name, PERSON.l_name, PROFESSOR.start_time, PROFESSOR.end_time, PROFESSOR.days_, PROFESSOR.held_in \
+    FROM ENROLLED_IN JOIN COURSE ON ENROLLED_IN.course_id = COURSE.course_id AND ENROLLED_IN.section_id = COURSE.section_id\
+    JOIN TEACHES ON COURSE.course_id = TEACHES.course_id JOIN PROFESSOR ON PROFESSOR.professor_id\
+    JOIN PERSON on PROFESSOR.professor_id = PERSON.id\
+    WHERE ENROLLED_IN.person_id = ?', [person_id], (err, result) => {
+        if(err) {
+            console.log(err);
+            return res.status(500).send('Internal Server Error');
+        }
+        else if(result.affectedRows === 0)
+            return res.status(401).send('Couldnt find courses');
+        else{
+            result.forEach((row) => profs.push(row));  
+            return res.status(200).json(profs);
+        }
+    });
+});
+
 // after a time has been found:
 // router.post('/addcourse', (req, res) => {
 //     // start_time TIME, will have dates attached for BOOKINGs

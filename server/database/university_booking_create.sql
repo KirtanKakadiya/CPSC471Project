@@ -20,12 +20,6 @@ CREATE TABLE IF NOT EXISTS STUDENT(
     FOREIGN KEY (student_id) REFERENCES PERSON (id)
 );
 
-CREATE TABLE IF NOT EXISTS PROFESSOR(
-    professor_id int NOT NULL,
-    PRIMARY KEY (professor_id),
-    FOREIGN KEY (professor_id) REFERENCES PERSON (id)
-);
-
 CREATE TABLE IF NOT EXISTS ADMINISTRATOR(
     admin_id int NOT NULL,
     PRIMARY KEY (admin_id),
@@ -41,6 +35,16 @@ CREATE TABLE IF NOT EXISTS ROOM(
    FOREIGN KEY (created_by) REFERENCES PERSON(id)
 );
 
+CREATE TABLE IF NOT EXISTS PROFESSOR(
+    professor_id int NOT NULL,
+    start_time TIME NOT NULL,
+    end_time TIME NOT NULL,
+    days_ BOOLEAN, -- 0=MWF, 1=TTh
+    held_in varchar(15) NOT NULL,
+    PRIMARY KEY (professor_id),
+    FOREIGN KEY (professor_id) REFERENCES PERSON (id),
+    FOREIGN KEY (held_in) REFERENCES ROOM(room_id)
+);
 
 -- combined course and section to simplify
 CREATE TABLE IF NOT EXISTS COURSE (
@@ -131,26 +135,28 @@ INSERT INTO PERSON (id, f_name, m_name, l_name, phone_number, email, password) V
    (5, 'prof2', NULL, 'test2', '123-741-8521', 'email2@gmail.com', 'password4'),
    (6, 'admin1', NULL, 'test3', '123-741-8522', 'admin', 'password'),
    (7, 'admin2', NULL, 'test4', '123-741-8523', 'email4@gmail.com', 'password6');
+   
+INSERT INTO ROOM (room_id, created_by, capacity, room_type) VALUES
+   ('SA 120', 1, 60, "Classroom"),
+   ('TFDL 251', 1, 4, "Conference room"),
+   ('TFDL 106', 1, 4, "Conference room"),
+   ('ICT 102', 1, 250, "Lecture Hall"),
+   ('ENG 60', 1, 251, "Lecture Hall"),
+   ('SCI 42', 1, 5, "Conference room"),
+   ('ENG 69', 1, 5, "Conference room");
 
 INSERT INTO STUDENT (student_id) VALUES
    (1),
    (2),
    (3);
 
-INSERT INTO PROFESSOR (professor_id) VALUES
-   (4),
-   (5);
+INSERT INTO PROFESSOR (professor_id, start_time, end_time, days_, held_in ) VALUES
+   (4, '4:20:00', '5:55:00', 1, 'SCI 42'),
+   (5, '6:00:00', '9:00:00', 0, 'ENG 69');
 
 INSERT INTO ADMINISTRATOR (admin_id) VALUES
    (6),
    (7);
-
-INSERT INTO ROOM (room_id, created_by, capacity, room_type) VALUES
-   ('SA 120', 1, 60, "Classroom"),
-   ('TFDL 251', 1, 4, "Conference room"),
-   ('TFDL 106', 1, 4, "Conference room"),
-   ('ICT 102', 1, 250, "Lecture Hall"),
-   ('ENG 60', 1, 251, "Lecture Hall");
 
 
 INSERT INTO COURSE (course_id, section_id, created_by, class_size, start_time, end_time, days_, taught_in) VALUES
@@ -165,10 +171,10 @@ INSERT INTO ENROLLED_IN (person_id, course_id, section_id) VALUES
    (2, 'MATH 211', 1);
 
 
--- INSERT INTO TEACHES (person_id, course_id, section_id) VALUES
---    (3, 'CPSC 471', 1),
---    (2, 'CPSC 471', 2),
---    (1, 'MATH 211', 1);
+INSERT INTO TEACHES (person_id, course_id, section_id) VALUES
+   (4, 'CPSC 471', 1),
+   (4, 'CPSC 471', 2),
+   (5, 'MATH 211', 1);
 
 
 INSERT INTO LECTURE_HALL (room_id, individual_plugins, podium_id, podium_password) VALUES

@@ -3,28 +3,7 @@ import "../assets/styling/Courses.css"
 import { useState } from 'react'
 import DataTable from "react-data-table-component"
 
-const DUMMYDATA = [
-    {
-        "course_id":"CPSC 471","section_id":1,"start_time":"12:00:00","end_time":"12:50:00","days_":0,"taught_in":"ICT 102"
-    },
-    {
-        course_id : "271",
-        taught_in: "2",
-        start_time : "2024-02-15 00:00:0",
-        end_time : "2024-02-15 00:00:00",
-        days_: 0
-    },
-    {
-        course_id : "271",
-        taught_in: "2",
-        start_time : "2024-02-15 00:00:0",
-        end_time : "2024-02-15 00:00:00",
-        days_: 0
-      }
-
-  ]
-
-export default function Courses(props){
+export default function OfficeHours(props){
     console.log(props.data);
     const [data, setData] = useState(props.data)
     const [loading, setLoading] = useState(false)
@@ -32,12 +11,8 @@ export default function Courses(props){
 
     const columns = [
         {
-            name: "Course Name",
-            selector: (row) =>row.course_id
-        },
-        {
-            name: "Location",
-            selector: (row) =>row.taught_in
+            name: "Instructor",
+            selector: (row) => row.f_name + " " + row.l_name
         },
         {
             name: "Begins",
@@ -52,10 +27,9 @@ export default function Courses(props){
             selector: (row) => row.days_ === 0 ? "MWF" : "TTh"
         },
         {
-            name: "Instructor",
-            selector: (row) => row.f_name + " " + row.l_name
-        }
-
+            name: "Location",
+            selector: (row) =>row.held_in
+        },
     ]
 
     return(

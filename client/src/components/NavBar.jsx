@@ -8,7 +8,7 @@ import { MdOutlineClass } from "react-icons/md";
 import { IoBodySharp } from "react-icons/io5";
 import { BiLogOut } from "react-icons/bi";
 import { RiReservedFill } from "react-icons/ri";
-import { GrUserAdmin } from "react-icons/gr";
+import { GrUser, GrUserAdmin } from "react-icons/gr";
 import '../assets/styling/NavBar.css';
 import Logo from "../assets/images/logo.png";
 import ProfileImg from "../assets/images/profile-img.png";
@@ -60,6 +60,7 @@ export default function NavBar(){
                         {usertype === "ADMIN" ? <li className='sidebar-links'><GrUserAdmin className='sidebar-icons'/><a href='/admin/modifyroom'>Modify Booking</a></li> : null}
                         {usertype === "ADMIN" ? <li className='sidebar-links'><GrUserAdmin className='sidebar-icons'/><a href='/admin/roomeditor'>Room Editor</a></li> : null}
                         {usertype === "ADMIN" ? <li className='sidebar-links'><GrUserAdmin className='sidebar-icons'/><a href='/admin/schedulecourses'>Schedule Courses</a></li> : null}
+                        {usertype === "STUDENT" ? <li className='sidebar-links'><GrUser className='sidebar-icons'/><a href='/studentinfo'>User Info</a></li> : null}
 
                 </ul>
             </div>

@@ -21,6 +21,7 @@ export default function LoginPage(){
             setSuccessText("Incorrect username or password");
             return;
         }
+
         event.preventDefault();
         var data = {};
         var error = null;
@@ -49,7 +50,7 @@ export default function LoginPage(){
         } else if (response.status == 200) {
             response.json().then((resData) => {
                 console.log(resData.f_name, resData.l_name, resData.userType, resData.id);
-                dispatch(setUserDetails({type: "LOG_IN", payload: {username: resData.f_name + " " + resData.l_name, userType: resData.userType, userID: resData.id}}))
+                dispatch(setUserDetails({type: "LOG_IN", payload: { username: resData.f_name + " " + resData.l_name, userType: resData.userType, userID: resData.id }}));
                 navigate("/home");
             })
         }
@@ -69,7 +70,6 @@ export default function LoginPage(){
                     <IoMdKey className='login-icon'/>
                 </div>
                 <button className='submit-login'>Login</button>
-                <h2 className='register'>Not a member? <a href='/register'>Register</a></h2>
                 <h2 className='on-fail'>{successText}</h2>
 
             </form>
