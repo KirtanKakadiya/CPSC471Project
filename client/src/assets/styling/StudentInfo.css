@@ -1,0 +1,15 @@
+.student-info-wrapper{
+    display: inline;
+    padding: 20px;
+}
+
+.student-info-wrapper h1{
+    margin-left: 5vh;
+    margin-top: 3vh;
+    color: darkblue;
+}
+
+.student-info-wrapper p{
+    font-size: large;
+    margin-left: 5vh;
+}
