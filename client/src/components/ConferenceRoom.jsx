@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-export default function LectureRoom(props){
+export default function ConferenceRoom(props){
     const room = props.room;
     const roomNumber = props.roomNumber
     const capacity = props.capacity
@@ -22,7 +22,7 @@ export default function LectureRoom(props){
     return(
         <div className='content-wrapper-lecrooms'>
             <button className={`room-button ${available === "true" ? 'green-background' : 'red-background'}`}>
-                Lecture : {roomNumber}
+                Conference Room : {roomNumber}
                 <div className='room-info'>
                     Room Number: {room}                     
                     Capacity : {capacity}

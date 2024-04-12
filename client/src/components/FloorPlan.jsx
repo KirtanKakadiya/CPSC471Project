@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import '../assets/styling/FloorPlan.css';
 import LectureRoom from './LectureRoom';
 import StudyRoom from './StudyRoom';
-
+import ConferenceRoom from './ConferenceRoom';
 
 
 
@@ -57,12 +57,12 @@ export default function FloorPlan(props){
                         for(let val in booking){
                             if(val.held_in == data.room_id){
                                 flag = true
-                                rooms.push(<LectureRoom key = {rdata[0]} roomNumber = {rdata[1]} capacity = {data.capacity} available = {"false"} date = {date} room = {data.room_id}/>);
+                                rooms.push(<ConferenceRoom key = {rdata[0]} roomNumber = {rdata[1]} capacity = {data.capacity} available = {"false"} date = {date} room = {data.room_id}/>);
                             }
                         }
                     }
                     if(flag) break;
-                    rooms.push(<LectureRoom key = {rdata[0]} roomNumber = {rdata[1]} capacity = {data.capacity} available = {"true"} date = {date} room = {data.room_id}/>);
+                    rooms.push(<ConferenceRoom key = {rdata[0]} roomNumber = {rdata[1]} capacity = {data.capacity} available = {"true"} date = {date} room = {data.room_id}/>);
                     break;
                 default:
                     console.log("Invalid room type");
