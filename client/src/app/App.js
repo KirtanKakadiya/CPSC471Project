@@ -35,7 +35,6 @@ function App() {
         <Routes>
           <Route path = "/" element = {<Layout />}>
             <Route path = "/exploreclass" element = {<ExploreRoom />} />
-            <Route path = "/discoverclass" element = {<DiscoverClasses />} />
             <Route path = "/roomreservations" element = {<RoomReservations />} />
             <Route path='/booking/:roomNumber/:capacity/:date' element = {<BookingPage />} />
             <Route path='/admin/modifyroom' element = {<AdminModifyRooms />} />  

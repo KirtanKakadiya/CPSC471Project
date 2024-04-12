@@ -121,7 +121,7 @@ export default function ViewRoom(){
             console.log(rooms)
         }
         RoomData();
-    
+    });
     useEffect(()=>{
         async function BookingData(){
             const route = "http://localhost:7003/booking/getbooking";

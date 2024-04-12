@@ -51,7 +51,7 @@ export default function LoginPage(){
             response.json().then((resData) => {
                 console.log(resData.f_name, resData.l_name, resData.userType, resData.id);
                 dispatch(setUserDetails({type: "LOG_IN", payload: { username: resData.f_name + " " + resData.l_name, userType: resData.userType, userID: resData.id }}));
-                navigate("/home");
+                navigate("/exploreclass");
             })
         }
     }

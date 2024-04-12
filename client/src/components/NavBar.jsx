@@ -45,10 +45,7 @@ export default function NavBar(){
                             <BsEyeglasses className='sidebar-icons'/>
                             <a href='/exploreclass'>Explore Rooms</a>
                         </li>
-                        <li className='sidebar-links'>
-                            <MdOutlineClass  className='sidebar-icons'/>
-                            <a href='/discoverclass'>Discover Class</a>
-                        </li>
+
                         <li className='sidebar-links'>
                             <RiReservedFill  className='sidebar-icons'/>
                             <a href='/roomreservations'>Room Reservations</a>
