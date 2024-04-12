@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS PROFESSOR(
 
 -- combined course and section to simplify
 CREATE TABLE IF NOT EXISTS COURSE (
-   course_id varchar(10) NOT NULL,
+   course_id varchar(10) UNIQUE NOT NULL,
    section_id int NOT NULL,
    created_by int,
    class_size int,
