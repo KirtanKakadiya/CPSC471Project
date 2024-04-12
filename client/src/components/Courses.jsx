@@ -5,60 +5,51 @@ import DataTable from "react-data-table-component"
 
 const DUMMYDATA = [
     {
-      "id": 1,
-      "name": "MATH",
-      "roomtype": "Lecture",
-      "courseid" : "271",
-      "roomnumber": "2",
-      "location" : "TFDL",
-      "date" : "2024-02-15 00:00:00"
+        "course_id":"CPSC 471","section_id":1,"start_time":"12:00:00","end_time":"12:50:00","days_":0,"taught_in":"ICT 102"
     },
     {
-        "id": 2,
-        "name": "SENG",
-        "roomtype": "Lecture",
-        "courseid" : "480",
-        "roomnumber": "1",
-        "location" : "TFDL",
-        "date" : "2023-02-15 02:00:00"
+        course_id : "271",
+        taught_in: "2",
+        start_time : "2024-02-15 00:00:0",
+        end_time : "2024-02-15 00:00:00",
+        days_: 0
     },
     {
-        "id": 3,
-        "name": "CPSC",
-        "courseid" : "471",
-        "roomtype": "Lecture",
-        "roomnumber": "3",
-        "location" : "ENGG",
-        "date" : "2024-02-25 00:00:00"
+        course_id : "271",
+        taught_in: "2",
+        start_time : "2024-02-15 00:00:0",
+        end_time : "2024-02-15 00:00:00",
+        days_: 0
       }
 
   ]
 
 export default function Courses(props){
-    const [data, setData] = useState(DUMMYDATA)
+    console.log(props.data);
+    const [data, setData] = useState(props.data)
     const [loading, setLoading] = useState(false)
     const [perPage, setPerPage] = useState(10);
 
     const columns = [
         {
             name: "Course Name",
-            selector: (row) =>row.name,
-        },
-        {
-            name: "Course ID",
-            selector: (row) =>row.courseid,
+            selector: (row) =>row.course_id
         },
         {
             name: "Location",
-            selector: (row) =>row.location,
+            selector: (row) =>row.taught_in
         },
         {
-            name: "Room Number",
-            selector: (row) =>row.roomtype + " " + row.roomnumber,
+            name: "Begins",
+            selector: (row) =>row.start_time
         },
         {
-            name: "Time",
-            selector: (row) =>row.date,
+            name: "Ends",
+            selector: (row) =>row.end_time
+        },
+        {
+            name: "Days",
+            selector: (row) => row.days_ === 0 ? "MWF" : "TH"
         }
 
     ]
@@ -67,7 +58,7 @@ export default function Courses(props){
         <div className='restable-content'>
             <DataTable 
                 columns={columns}
-                data = {data}
+                data = {props.data}
                 progressPending = {loading}
             />
         </div>

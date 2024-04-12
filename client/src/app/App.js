@@ -9,6 +9,7 @@ import AdminModifyRooms from '../pages/AdminModifyRooms';
 import RoomEditor from '../pages/RoomEditor';
 import AddRoom from '../pages/AddRoom';
 import BookingPage from '../pages/BookingPage';
+import StudentInfo from '../pages/StudentInfo';
 import Protected from './Protected';
 import {BrowserRouter, Route,Routes,ProtectedRoute } from "react-router-dom";
 import Layout from "../Layout"
@@ -37,6 +38,7 @@ function App() {
             <Route path='/admin/modifyroom' element = {<AdminModifyRooms />} />  
             <Route path='/admin/roomeditor' element = {<RoomEditor />} /> 
             <Route path='/admin/roomeditor/addroom' element = {<AddRoom />} /> 
+            <Route path = "/studentinfo" element = {<StudentInfo />} />
           </Route>
         </Routes>
       </Protected>

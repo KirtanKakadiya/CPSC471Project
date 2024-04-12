@@ -18,7 +18,7 @@ app.use(cors());
 //Routes
 app.use('/user', userController);
 app.use('/room', roomController);
-// app.use('courses', courseController);
+app.use('/courses', courseController);
 app.use('/booking', bookingController);
 
 app.listen(port, function(){

@@ -12,20 +12,16 @@ export default function LoginPage(){
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [email, setUsername] = useState("");
-    const [email, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [successText, setSuccessText] = useState("");
 
     async function HandleLogin(event) {
-    async function HandleLogin(event) {
 
-        if(password === "" || email === ""){
         if(password === "" || email === ""){
             setSuccessText("Incorrect username or password");
             return;
         }
-            return;
-        }
+
         event.preventDefault();
         var data = {};
         var error = null;
@@ -53,8 +49,8 @@ export default function LoginPage(){
             setSuccessText(response.statusText);
         } else if (response.status == 200) {
             response.json().then((resData) => {
-                console.log(resData.f_name, resData.l_name, resData.userType);
-                dispatch(setUserDetails({type: "LOG_IN", payload: {username: resData.f_name + " " + resData.l_name, userType: resData.userType}}))
+                console.log(resData.f_name, resData.l_name, resData.userType, resData.id);
+                dispatch(setUserDetails({type: "LOG_IN", payload: { username: resData.f_name + " " + resData.l_name, userType: resData.userType, userID: resData.id }}));
                 navigate("/home");
             })
         }
@@ -64,10 +60,8 @@ export default function LoginPage(){
         <div className='login-page'>
             <div className='wrapper'>
             <form onSubmit={HandleLogin}>
-            <form onSubmit={HandleLogin}>
                 <h1>Login</h1>
                 <div className="input-box">
-                    <input  value = {email} type="text" placeholder='Username' onChange={(event) => setUsername(event.target.value)} />
                     <input  value = {email} type="text" placeholder='Username' onChange={(event) => setUsername(event.target.value)} />
                     <FaUser className='login-icon'/>
                 </div>
@@ -76,7 +70,6 @@ export default function LoginPage(){
                     <IoMdKey className='login-icon'/>
                 </div>
                 <button className='submit-login'>Login</button>
-                <h2 className='register'>Not a member? <a href='/register'>Register</a></h2>
                 <h2 className='on-fail'>{successText}</h2>
 
             </form>
