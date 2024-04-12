@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS PERSON (
 CREATE TABLE IF NOT EXISTS STUDENT(
     student_id int NOT NULL,
     PRIMARY KEY (student_id),
-    FOREIGN KEY (student_id) REFERENCES PERSON (id)
+    FOREIGN KEY (student_id) REFERENCES PERSON (id) 
 );
 
 CREATE TABLE IF NOT EXISTS ADMINISTRATOR(
@@ -37,8 +37,8 @@ CREATE TABLE IF NOT EXISTS ROOM(
 
 CREATE TABLE IF NOT EXISTS PROFESSOR(
     professor_id int NOT NULL,
-    start_time TIME NOT NULL,
-    end_time TIME NOT NULL,
+    start_time VARCHAR(25) NOT NULL,
+    end_time VARCHAR(25) NOT NULL,
     days_ BOOLEAN, -- 0=MWF, 1=TTh
     held_in varchar(15) NOT NULL,
     PRIMARY KEY (professor_id),
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS PROFESSOR(
 
 -- combined course and section to simplify
 CREATE TABLE IF NOT EXISTS COURSE (
-   course_id varchar(10) UNIQUE NOT NULL,
+   course_id varchar(10) NOT NULL,
    section_id int NOT NULL,
    created_by int,
    class_size int,
