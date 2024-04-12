@@ -119,6 +119,43 @@ router.post('/getprofinfo', (req, res) => {
     });
 });
 
+router.post('/getprofessorschedule', (req, res) => {
+    const{prof_id} = req.body;
+    let courses = [];
+    databaseConnection.query( 'SELECT DISTINCT COURSE.course_id, COURSE.section_id, start_time, end_time, days_, taught_in\
+     FROM TEACHES JOIN COURSE ON TEACHES.course_id = COURSE.course_id AND TEACHES.section_id = COURSE.section_id\
+     WHERE TEACHES.person_id = ?', [prof_id], (err, result) => {
+        if(err) {
+            console.log(err);
+            return res.status(500).send('Internal Server Error');
+        }
+        else if(result.affectedRows === 0)
+            return res.status(401).send('Couldnt find courses');
+        else{
+            result.forEach((row) => courses.push(row));   
+            //console.log(courses);
+            return res.status(200).json(courses);
+        }
+    });
+});
+
+router.post('/getprofofficehours', (req, res) => {
+    const{prof_id} = req.body;
+    databaseConnection.query( 'SELECT start_time, end_time, days_, held_in\
+     FROM PROFESSOR\
+     WHERE professor_id = ?', [prof_id], (err, result) => {
+        if(err) {
+            console.log(err);
+            return res.status(500).send('Internal Server Error');
+        }
+        else if(result.affectedRows === 0)
+            return res.status(401).send('Couldnt find courses');
+        else{
+            return res.status(200).json(result);
+        }
+    });
+});
+
 // after a time has been found:
 // router.post('/addcourse', (req, res) => {
 //     // start_time TIME, will have dates attached for BOOKINGs

@@ -61,6 +61,7 @@ export default function NavBar(){
                         {usertype === "ADMIN" ? <li className='sidebar-links'><GrUserAdmin className='sidebar-icons'/><a href='/admin/roomeditor'>Room Editor</a></li> : null}
                         {usertype === "ADMIN" ? <li className='sidebar-links'><GrUserAdmin className='sidebar-icons'/><a href='/admin/schedulecourses'>Schedule Courses</a></li> : null}
                         {usertype === "STUDENT" ? <li className='sidebar-links'><GrUser className='sidebar-icons'/><a href='/studentinfo'>User Info</a></li> : null}
+                        {usertype === "PROFESSOR" ? <li className='sidebar-links'><GrUser className='sidebar-icons'/><a href='/professorinfo'>User Info</a></li> : null}
 
                 </ul>
             </div>

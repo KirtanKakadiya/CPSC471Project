@@ -10,6 +10,7 @@ import RoomEditor from '../pages/RoomEditor';
 import AddRoom from '../pages/AddRoom';
 import BookingPage from '../pages/BookingPage';
 import StudentInfo from '../pages/StudentInfo';
+import ProfessorInfo from '../pages/profInfo';
 import ScheduleCourses from '../pages/ScheduleCourses';
 import Protected from './Protected';
 import {BrowserRouter, Route,Routes,ProtectedRoute } from "react-router-dom";
@@ -40,7 +41,8 @@ function App() {
             <Route path='/admin/roomeditor' element = {<RoomEditor />} /> 
             <Route path='/admin/roomeditor/addroom' element = {<AddRoom />} /> 
             <Route path = "/studentinfo" element = {<StudentInfo />} />
-            <Route path='/admin/roomeditor/addroom' element = {<AddRoom />} /> \
+            <Route path='/professorinfo' element = {<ProfessorInfo />} />
+            <Route path='/admin/roomeditor/addroom' element = {<AddRoom />} /> 
             <Route path='/admin/schedulecourses' element = {<ScheduleCourses/>}/>
           </Route>
         </Routes>

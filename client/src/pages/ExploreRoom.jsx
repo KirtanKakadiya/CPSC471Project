@@ -132,8 +132,6 @@ export default function ViewRoom(){
         else{
             response.json().then(response => setBooking(response));
         }
-        
-
     }
     
     
