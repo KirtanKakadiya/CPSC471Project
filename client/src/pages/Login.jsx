@@ -4,6 +4,7 @@ import {useState} from'react';
 import { FaUser} from "react-icons/fa";
 import { IoMdKey } from "react-icons/io";
 import {useNavigate} from 'react-router-dom'
+import { toast, ToastContainer } from 'react-toastify';
 import { useSelector, useDispatch } from 'react-redux'
 import { setUserDetails } from '../reducers/userSlice';
 
@@ -42,11 +43,11 @@ export default function LoginPage(){
         });
     
         if (response.status == 400) {
-            setSuccessText(response.statusText);
+            toast.error(response.statusText);
         } else if (response.status == 500) {
-            setSuccessText(response.statusText);
+            toast.error(response.statusText);
         } else if (response.status == 401) {
-            setSuccessText(response.statusText);
+            toast.error(response.statusText);
         } else if (response.status == 200) {
             response.json().then((resData) => {
                 console.log(resData.f_name, resData.l_name, resData.userType, resData.id);
@@ -71,8 +72,8 @@ export default function LoginPage(){
                 </div>
                 <button className='submit-login'>Login</button>
                 <h2 className='on-fail'>{successText}</h2>
-
             </form>
+            <ToastContainer/>
             </div>
         </div>
     );
