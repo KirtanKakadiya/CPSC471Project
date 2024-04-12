@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS PROFESSOR(
     professor_id int NOT NULL,
     start_time VARCHAR(25) NOT NULL,
     end_time VARCHAR(25) NOT NULL,
-    days_ BOOLEAN NOT NULL, -- 0=MWF, 1=TTh
+    days_ BOOLEAN, -- 0=MWF, 1=TTh
     held_in varchar(15) NOT NULL,
     PRIMARY KEY (professor_id),
     FOREIGN KEY (professor_id) REFERENCES PERSON (id),
@@ -137,12 +137,12 @@ INSERT INTO PERSON (id, f_name, m_name, l_name, phone_number, email, password) V
    (7, 'admin2', NULL, 'test4', '123-741-8523', 'email4@gmail.com', 'password6');
    
 INSERT INTO ROOM (room_id, created_by, capacity, room_type) VALUES
-   ('SA 120', 1, 60, "Office"),
+   ('SA 120', 1, 60, "Classroom"),
    ('TFDL 251', 1, 4, "Conference room"),
    ('TFDL 106', 1, 4, "Conference room"),
    ('ICT 102', 1, 250, "Lecture Hall"),
    ('ENG 60', 1, 251, "Lecture Hall"),
-   ('SCI 42', 1, 5, "Conference room"),
+   ('SCI 42', 1, 5, "Office"),
    ('ENG 69', 1, 5, "Office");
 
 INSERT INTO STUDENT (student_id) VALUES

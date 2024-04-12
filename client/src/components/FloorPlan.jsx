@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import '../assets/styling/FloorPlan.css';
 import LectureRoom from './LectureRoom';
 import StudyRoom from './StudyRoom';
-
+import ConferenceRoom from './ConferenceRoom';
 
 
 
@@ -23,36 +23,46 @@ export default function FloorPlan(props){
         const rdata = data.room_id.split(" ");
         if(rdata[0] === lcoations){
             console.log(data.room_id, "ROOMDATA");
+            let flag = false;
             switch(data.room_type){
                 case "Classroom":
                     if(booking != null){
                         booking.forEach((val)=>{
                             if(val.held_in == data.room_id){
+                                flag = true
                                 rooms.push(<StudyRoom key = {rdata[0]} roomNumber = {rdata[1]} capacity = {data.capacity} available = {"false"} date = {date} room = {data.room_id}/>);
-                                return;
                             }
                         })
+                        
                     }
+                    if(flag) break;
                     rooms.push(<StudyRoom key = {rdata[0]} roomNumber = {rdata[1]} capacity = {data.capacity} available = {"true"} date = {date} room = {data.room_id}/>);
                     break;
                 case  "Lecture Hall":
-                    booking.forEach((val)=>{
-                        if(val.held_in == data.room_id){
-                            rooms.push(<LectureRoom key = {rdata[0]} roomNumber = {rdata[1]} capacity = {data.capacity} available = {"false"} date = {date} room = {data.room_id}/>);
-                            return;
-                        }
-
-                    })
+                    if(booking !=null){
+                        booking.forEach((val)=>{
+                            if(val.held_in == data.room_id){
+                                flag = true
+                                rooms.push(<LectureRoom key = {rdata[0]} roomNumber = {rdata[1]} capacity = {data.capacity} available = {"false"} date = {date} room = {data.room_id}/>);
+                            }
+    
+                        })
+                        
+                    }
+                    if(flag) break;
                     rooms.push(<LectureRoom key = {rdata[0]} roomNumber = {rdata[1]} capacity = {data.capacity} available = {"true"} date = {date} room = {data.room_id}/>);
                     break;
                 case "Conference room":
-                    for(let val in booking){
-                        if(val.held_in == data.room_id){
-                            rooms.push(<LectureRoom key = {rdata[0]} roomNumber = {rdata[1]} capacity = {data.capacity} available = {"false"} date = {date} room = {data.room_id}/>);
-                            break;
+                    if(booking != null){
+                        for(let val in booking){
+                            if(val.held_in == data.room_id){
+                                flag = true
+                                rooms.push(<ConferenceRoom key = {rdata[0]} roomNumber = {rdata[1]} capacity = {data.capacity} available = {"false"} date = {date} room = {data.room_id}/>);
+                            }
                         }
                     }
-                    rooms.push(<LectureRoom key = {rdata[0]} roomNumber = {rdata[1]} capacity = {data.capacity} available = {"true"} date = {date} room = {data.room_id}/>);
+                    if(flag) break;
+                    rooms.push(<ConferenceRoom key = {rdata[0]} roomNumber = {rdata[1]} capacity = {data.capacity} available = {"true"} date = {date} room = {data.room_id}/>);
                     break;
                 default:
                     console.log("Invalid room type");

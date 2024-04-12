@@ -13,6 +13,8 @@ import StudentInfo from '../pages/StudentInfo';
 import ProfessorInfo from '../pages/profInfo';
 import ScheduleCourses from '../pages/ScheduleCourses';
 import Protected from './Protected';
+import AdminAddUsers from '../pages/AdminAddUsers';
+import AdminViewUsers from '../pages/AdminViewUsers';
 import {BrowserRouter, Route,Routes,ProtectedRoute } from "react-router-dom";
 import Layout from "../Layout"
 import { useSelector } from 'react-redux'
@@ -32,7 +34,6 @@ function App() {
       <Protected isLoggedIn = {isLoggedIn}>
         <Routes>
           <Route path = "/" element = {<Layout />}>
-            <Route path = "/home" element = {<HomePage />} />
             <Route path = "/exploreclass" element = {<ExploreRoom />} />
             <Route path = "/discoverclass" element = {<DiscoverClasses />} />
             <Route path = "/roomreservations" element = {<RoomReservations />} />
@@ -44,6 +45,8 @@ function App() {
             <Route path='/professorinfo' element = {<ProfessorInfo />} />
             <Route path='/admin/roomeditor/addroom' element = {<AddRoom />} /> 
             <Route path='/admin/schedulecourses' element = {<ScheduleCourses/>}/>
+            <Route path='/admin/addusers' element = {<AdminAddUsers/>}/>
+            <Route path='/admin/viewusers' element = {<AdminViewUsers/>}/>
           </Route>
         </Routes>
       </Protected>

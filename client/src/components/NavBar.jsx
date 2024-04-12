@@ -42,10 +42,6 @@ export default function NavBar(){
             <div>
                 <ul>
                         <li className='sidebar-links'>
-                            <IoHomeSharp className='sidebar-icons'/>
-                            <a href='/home'>Home</a>
-                        </li>
-                        <li className='sidebar-links'>
                             <BsEyeglasses className='sidebar-icons'/>
                             <a href='/exploreclass'>Explore Rooms</a>
                         </li>
@@ -60,6 +56,7 @@ export default function NavBar(){
                         {usertype === "ADMIN" ? <li className='sidebar-links'><GrUserAdmin className='sidebar-icons'/><a href='/admin/modifyroom'>Modify Booking</a></li> : null}
                         {usertype === "ADMIN" ? <li className='sidebar-links'><GrUserAdmin className='sidebar-icons'/><a href='/admin/roomeditor'>Room Editor</a></li> : null}
                         {usertype === "ADMIN" ? <li className='sidebar-links'><GrUserAdmin className='sidebar-icons'/><a href='/admin/schedulecourses'>Schedule Courses</a></li> : null}
+                        {usertype === "ADMIN" ? <li className='sidebar-links'><GrUserAdmin className='sidebar-icons'/><a href='/admin/viewusers'>View Users</a></li> : null}
                         {usertype === "STUDENT" ? <li className='sidebar-links'><GrUser className='sidebar-icons'/><a href='/studentinfo'>User Info</a></li> : null}
                         {usertype === "PROFESSOR" ? <li className='sidebar-links'><GrUser className='sidebar-icons'/><a href='/professorinfo'>User Info</a></li> : null}
 
