@@ -54,6 +54,24 @@ router.get('/getuser', (req, res) => {
     });
 });
 
+router.post('/setprofavailability', (req, res) => {
+    const {startTime, endTime, prof_id} = req.body;
+    databaseConnection.query('UPDATE PROFESSOR SET start_time = ?, end_time = ? WHERE professor_id = ?',[startTime, endTime, prof_id], (err, result) => {
+        if(err) {
+            console.log(err);
+            return res.status(500).send('Internal Server Error');
+        }
+        else if(result.affectedRows === 0){
+            console.log(result);
+            return res.status(200).json({res:true});
+        }
+        else{
+            console.log(result);
+            return res.status(200).json({res:false});
+        }
+    });
+})
+
 //2.0 Adding user /user/adduser
 router.post('/adduser', (req, res) => {
     const {f_name, m_name, l_name, phone_number, email, password} =  req.body;

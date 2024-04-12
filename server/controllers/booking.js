@@ -27,9 +27,6 @@ router.post('/getbooking', (req, res) => {
         }
     
     });
-
-
-
 })
 
 

@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS PERSON (
 CREATE TABLE IF NOT EXISTS STUDENT(
     student_id int NOT NULL,
     PRIMARY KEY (student_id),
-    FOREIGN KEY (student_id) REFERENCES PERSON (id) 
+    FOREIGN KEY (student_id) REFERENCES PERSON (id)
 );
 
 CREATE TABLE IF NOT EXISTS ADMINISTRATOR(
@@ -142,8 +142,8 @@ INSERT INTO ROOM (room_id, created_by, capacity, room_type) VALUES
    ('TFDL 106', 1, 4, "Conference room"),
    ('ICT 102', 1, 250, "Lecture Hall"),
    ('ENG 60', 1, 251, "Lecture Hall"),
-   ('SCI 42', 1, 5, "Conference room"),
-   ('ENG 69', 1, 5, "Conference room");
+   ('SCI 42', 1, 5, "Office"),
+   ('ENG 69', 1, 5, "Office");
 
 INSERT INTO STUDENT (student_id) VALUES
    (1),

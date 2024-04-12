@@ -121,9 +121,6 @@ export default function ViewRoom(){
             console.log(rooms)
         }
         RoomData();
-
-
-    }, []);
     
     useEffect(()=>{
         async function BookingData(){

@@ -1,0 +1,27 @@
+.professor-info-wrapper{
+    display: inline;
+    padding: 20px;
+}
+
+.professor-info-wrapper h1{
+    margin-left: 5vh;
+    margin-top: 3vh;
+    color: darkblue;
+}
+
+.professor-info-wrapper p{
+    font-size: large;
+    margin-left: 5vh;
+}
+
+.submit{
+    margin-left: 2vh;
+    margin-top: 1vh;
+    font-size: large;
+}
+
+.cancel{
+    margin-left: 2vh;
+    margin-top: 1vh;
+    font-size: large;
+}
