@@ -87,10 +87,10 @@ export default function AdminViewUsers() {
         <div className="content-wrapper-adminmodify">
             <div className="heading">
                 <h1 className='title-modifyrooom'>
-                    Admin Room Editor
+                    See Users
                 </h1>
                 <button className="addrooombtn"  onClick={() => navigate("/admin/addusers")}>
-                    Add Room
+                    Add User
                 </button>
             </div>
 
