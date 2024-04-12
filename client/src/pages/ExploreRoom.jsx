@@ -81,77 +81,92 @@ export default function ViewRoom(){
     const [bookings, setBooking] = useState([]);
     const [rooms, setRooms] = useState([]);
     const [location, setLocations] = useState();
+    const [floorplan, setFloorplan] = useState();
+    const [locations, setLocation] = useState(new Set());
+    const [fRooms, setFRooms] = useState([]);
+
 
     const onDateChange=(newDate)=>{
         //Your custom code here
         setDateTime(dayjs(newDate).format('YYYY-MM-D HH:00:00'));
        };
-
-    async function RoomData(){
-        const route = "http://localhost:7003/room/viewroom";
-        const response = await fetch(route , {
-            method: "GET",
-            headers: {
-              "Access-Control-Allow-Origin": "*",
-              "Access-Control-Allow-Methods": "GET",
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(),
-        });
-        if(response.status == 500){
-            // toast.error(response.statusText);
-        }
-        else if(response.status == 401){
-            // toast.error(response.statusText);
-        }
-        else{
-            response.json().then(response => setRooms(response));
-        }
-        
-        console.log(rooms)
-    }
-
-    async function BookingData(){
-        const route = "http://localhost:7003/booking/getbooking";
-
-        const response = await fetch(route , {
-            method: "POST",
-            headers: {
-              "Access-Control-Allow-Origin": "*",
-              "Access-Control-Allow-Methods": "POST",
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({date: dateTime}),
-        });
-        if(response.status == 500){
-            // toast.error(response.statusText);
-        }
-        else if(response.status == 401){
-            // toast.error(response.statusText);
-        }
-        else{
-            response.json().then(response => setBooking(response));
-        }
-        
-
-    }
     
-    
-    useEffect(()=>{
-        RoomData();
-    }, []);
 
-    useEffect(()=>{
-        BookingData();
-    }, [dateTime]);
-
-    let locations = new Set();
     rooms.forEach((data) =>{
         const rdata = data.room_id.split(" ");
         locations.add(rdata[0]); 
     });
+    useEffect(()=>{
+        async function RoomData(){
+            const route = "http://localhost:7003/room/viewroom";
+            const response = await fetch(route , {
+                method: "GET",
+                headers: {
+                  "Access-Control-Allow-Origin": "*",
+                  "Access-Control-Allow-Methods": "GET",
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(),
+            });
+            if(response.status == 500){
+                // toast.error(response.statusText);
+            }
+            else if(response.status == 401){
+                // toast.error(response.statusText);
+            }
+            else{
+                response.json().then(response => setRooms(response));
+            }
+            
+            console.log(rooms)
+        }
+        RoomData();
 
-    console.log(locations);
+
+    }, []);
+    
+    useEffect(()=>{
+        async function BookingData(){
+            const route = "http://localhost:7003/booking/getbooking";
+    
+            const response = await fetch(route , {
+                method: "POST",
+                headers: {
+                  "Access-Control-Allow-Origin": "*",
+                  "Access-Control-Allow-Methods": "POST",
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({date: dateTime}),
+            });
+            if(response.status == 500){
+                // toast.error(response.statusText);
+            }
+            else if(response.status == 401){
+                // toast.error(response.statusText);
+            }
+            else{
+                response.json().then(response => setBooking(response));
+            }
+            
+    
+        }
+        BookingData();
+    }, [dateTime]);
+
+
+    
+    
+    useEffect(() => {
+        if (!location) return; // Return if location is not selected yet
+        const filteredRooms = rooms.filter(data => data.room_id.startsWith(location));
+        setFRooms(filteredRooms);
+    }, [rooms, location]);
+
+
+
+
+
+    // console.log(locations);
 
     return(
         <div className='content-wrapper'>
@@ -187,9 +202,9 @@ export default function ViewRoom(){
                     </FormControl>
                 </Box>
             </div>
+            <FloorPlan roomData = {fRooms} locations = {location} booking = {bookings} date = {dateTime}/>
 
-
-            <FloorPlan roomData = {rooms} locations = {location} booking = {bookings} date = {dateTime}/>
+            {/* <FloorPlan roomData = {rooms} locations = {location} booking = {bookings} date = {dateTime}/> */}
             {/* <ToastContainer/> */}
         </div>
     );
