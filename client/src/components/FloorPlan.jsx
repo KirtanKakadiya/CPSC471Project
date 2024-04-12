@@ -30,39 +30,39 @@ export default function FloorPlan(props){
                         booking.forEach((val)=>{
                             if(val.held_in == data.room_id){
                                 flag = true
-                                rooms.push(<StudyRoom key = {rdata[0]} roomNumber = {rdata[1]} capacity = {data.capacity} available = {"false"} date = {date} room = {data.room_id}/>);
+                                rooms.push(<StudyRoom key = {rdata[0]} roomNumber = {rdata[1]} capacity = {data.capacity} available = {"false"} date = {date} room = {data.room_id} indPlugs = {data.individual_plugins} board = {data.board_type} projector = {data.projector}/>);
                             }
                         })
                         
                     }
                     if(flag) break;
-                    rooms.push(<StudyRoom key = {rdata[0]} roomNumber = {rdata[1]} capacity = {data.capacity} available = {"true"} date = {date} room = {data.room_id}/>);
+                    rooms.push(<StudyRoom key = {rdata[0]} roomNumber = {rdata[1]} capacity = {data.capacity} available = {"true"} date = {date} room = {data.room_id} indPlugs = {data.individual_plugins} board = {data.board_type} projector = {data.projector}/>);
                     break;
                 case  "Lecture Hall":
                     if(booking !=null){
                         booking.forEach((val)=>{
                             if(val.held_in == data.room_id){
                                 flag = true
-                                rooms.push(<LectureRoom key = {rdata[0]} roomNumber = {rdata[1]} capacity = {data.capacity} available = {"false"} date = {date} room = {data.room_id}/>);
+                                rooms.push(<LectureRoom key = {rdata[0]} roomNumber = {rdata[1]} capacity = {data.capacity} available = {"false"} date = {date} room = {data.room_id} indPlugs = {data.individual_plugins} podimID = {data.podium_id} podiumPass = {data.podium_password}/>);
                             }
     
                         })
                         
                     }
                     if(flag) break;
-                    rooms.push(<LectureRoom key = {rdata[0]} roomNumber = {rdata[1]} capacity = {data.capacity} available = {"true"} date = {date} room = {data.room_id}/>);
+                    rooms.push(<LectureRoom key = {rdata[0]} roomNumber = {rdata[1]} capacity = {data.capacity} available = {"true"} date = {date} room = {data.room_id} indPlugs = {data.individual_plugins} podimID = {data.podium_id} podiumPass = {data.podium_password}/>);
                     break;
                 case "Conference room":
                     if(booking != null){
                         for(let val in booking){
                             if(val.held_in == data.room_id){
                                 flag = true
-                                rooms.push(<ConferenceRoom key = {rdata[0]} roomNumber = {rdata[1]} capacity = {data.capacity} available = {"false"} date = {date} room = {data.room_id}/>);
+                                rooms.push(<ConferenceRoom key = {rdata[0]} roomNumber = {rdata[1]} capacity = {data.capacity} available = {"false"} date = {date} room = {data.room_id} indPlugs = {data.individual_plugins} board = {data.board_type} projector = {data.projector}/>);
                             }
                         }
                     }
                     if(flag) break;
-                    rooms.push(<ConferenceRoom key = {rdata[0]} roomNumber = {rdata[1]} capacity = {data.capacity} available = {"true"} date = {date} room = {data.room_id}/>);
+                    rooms.push(<ConferenceRoom key = {rdata[0]} roomNumber = {rdata[1]} capacity = {data.capacity} available = {"true"} date = {date} room = {data.room_id} indPlugs = {data.individual_plugins} board = {data.board_type} projector = {data.projector}/>);
                     break;
                 default:
                     console.log("Invalid room type");

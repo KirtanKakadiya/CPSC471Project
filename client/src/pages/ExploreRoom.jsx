@@ -77,7 +77,7 @@ const DUMMYDATA= [
 
 export default function ViewRoom(){
 
-    const [dateTime, setDateTime] = useState(new Date());
+    const [dateTime, setDateTime] = useState(dayjs(TODAY).format('YYYY-MM-D HH:00:00'));
     const [bookings, setBooking] = useState([]);
     const [rooms, setRooms] = useState([]);
     const [location, setLocations] = useState();
