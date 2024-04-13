@@ -138,7 +138,7 @@ export default function ProfessorInfo() {
                     Reschedule Office Hours
                 </button>
                 {officeForm && (
-                    <form>
+                    <form className='prof-form'>
                         <h2>Choose start time</h2>
                         <div className = "time-picker">
                             <LocalizationProvider dateAdapter={AdapterDayjs}>

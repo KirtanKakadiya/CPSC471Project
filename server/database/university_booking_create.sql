@@ -136,12 +136,35 @@ INSERT INTO PERSON (id, f_name, m_name, l_name, phone_number, email, password) V
    (6, 'admin1', NULL, 'test3', '123-741-8522', 'admin', 'password'),
    (7, 'admin2', NULL, 'test4', '123-741-8523', 'email4@gmail.com', 'password6');
    
+   
 INSERT INTO ROOM (room_id, created_by, capacity, room_type) VALUES
-   ('SA 120', 1, 60, "Classroom"),
-   ('TFDL 251', 1, 4, "Conference room"),
-   ('TFDL 106', 1, 4, "Conference room"),
-   ('ICT 102', 1, 250, "Lecture Hall"),
-   ('ENG 60', 1, 251, "Lecture Hall"),
+   ('SA 120', 6, 60, "Classroom"),
+   ('SA 121', 6, 40, "Classroom"),
+   ('SA 122', 6, 80, "Classroom"),
+   ('SA 123', 6, 60, "Classroom"),
+   ('SA 124', 6, 90, "Classroom"),
+   ('SA 125', 6, 70, "Classroom"),
+   ('TFDL 106', 6, 4, "Conference room"),
+   ('TFDL 107', 7, 4, "Conference room"),
+   ('TFDL 108', 7, 4, "Conference room"),
+   ('TFDL 109', 7, 4, "Conference room"),
+   ('TFDL 110', 7, 4, "Conference room"),
+   ('TFDL 111', 7, 4, "Conference room"),
+   ('TFDL 112', 6, 4, "Conference room"),
+   ('TFDL 251', 6, 4, "Conference room"),
+   ('ICT 102', 6, 250, "Lecture Hall"),
+   ('ICT 103', 6, 100, "Lecture Hall"),
+   ('ICT 104', 6, 250, "Lecture Hall"),
+   ('ICT 105', 6, 200, "Lecture Hall"),
+   ('ICT 106', 7, 250, "Lecture Hall"),
+   ('ICT 107', 7, 225, "Lecture Hall"),
+   ('ENG 60', 6, 251, "Lecture Hall"),
+   ('ENG 61', 7, 251, "Lecture Hall"),
+   ('ENG 62', 6, 251, "Lecture Hall"),
+   ('ENG 63', 7, 251, "Lecture Hall"),
+   ('ENG 64', 6, 251, "Lecture Hall"),
+   ('ENG 65', 6, 22, "Lecture Hall"),
+   ('ENG 66', 7, 58, "Lecture Hall"),
    ('SCI 42', 1, 5, "Office"),
    ('ENG 69', 1, 5, "Office");
 
@@ -179,23 +202,37 @@ INSERT INTO TEACHES (person_id, course_id, section_id) VALUES
 
 INSERT INTO LECTURE_HALL (room_id, individual_plugins, podium_id, podium_password) VALUES
    ('ICT 102', 0, 'abc123efg', 1234),
-   ('ENG 60', 0, 'hij456lmn', 0001);
+   ('ENG 60', 0, 'hij456lmn', 0001),
+   ('ICT 103', 1, 'hij456lmn', 0000),
+   ('ICT 104', 0, 'hij456lmn', 1234),
+   ('ICT 105', 1, 'id1', 0000),
+   ('ICT 106', 1, 'id1', 0000),
+   ('ICT 107', 1, 'hij456lmn', 0001),
+   ('ENG 61', 1,'hij456lmn', 1234),
+   ('ENG 62', 1, 'id1', 0000),
+   ('ENG 63', 0, 'hij456lmn', 1234),
+   ('ENG 64', 0, 'id2', 0000),
+   ('ENG 65', 1, 'hij456lmn', 0001),
+   ('ENG 66', 1, 'id1', 0000);
 
 
 INSERT INTO CLASS_ROOM (room_id, individual_plugins, board_type, projector) VALUES
-   ('SA 120', 1, 1, 1);
+   ('SA 120', 1, 1, 1),
+   ('SA 121', 1, 1, 1),
+   ('SA 122', 0, 0, 1),
+   ('SA 123', 0, 0, 1),
+   ('SA 124', 0, 0, 1),
+   ('SA 125', 1, 1, 1);
 
--- CREATE TABLE IF NOT EXISTS CONFERENCE_ROOM (
---    room_id varchar(15),
---    individual_plugins BOOLEAN,
---    board_type BOOLEAN,
---    projector BOOLEAN,
---    PRIMARY KEY (room_id),
---    FOREIGN KEY (room_id) REFERENCES ROOM(room_id),
--- );
 INSERT INTO CONFERENCE_ROOM(room_id, individual_plugins, board_type, projector) VALUES
    ('TFDL 251', 0, 1, 1),
-   ('TFDL 106', 1,1,1);
+   ('TFDL 106', 1,1,1),
+   ('TFDL 107', 0,1,1),
+   ('TFDL 108', 1,0,1),
+   ('TFDL 109', 1,1,0),
+   ('TFDL 110', 1,1,1),
+   ('TFDL 111', 0,1,1),
+   ('TFDL 112', 1,1,1);
 
 
 INSERT INTO BOOKING (start_, end_, held_in, approved_by, scheduled_by) VALUES
