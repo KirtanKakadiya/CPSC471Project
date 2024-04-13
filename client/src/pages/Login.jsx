@@ -61,7 +61,8 @@ export default function LoginPage(){
         <div className='login-page'>
             <div className='wrapper'>
             <form onSubmit={HandleLogin}>
-                <h1>Login</h1>
+                <h1>Welcome to UniLodge</h1>
+                <h1>Please Login</h1>
                 <div className="input-box">
                     <input  value = {email} type="text" placeholder='Username' onChange={(event) => setUsername(event.target.value)} />
                     <FaUser className='login-icon'/>
