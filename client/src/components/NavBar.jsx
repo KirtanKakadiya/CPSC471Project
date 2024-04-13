@@ -36,7 +36,7 @@ export default function NavBar(){
         <nav className='sidebar'>
             <div className='logo-sidebar'>
                 <img className='logo-img' src= {Logo} alt=''/>
-                <h1 className='logo-txt'>University Room Booking</h1>
+                <h1 className='logo-txt'>UniLodge</h1>
             </div>
 
             <div>
