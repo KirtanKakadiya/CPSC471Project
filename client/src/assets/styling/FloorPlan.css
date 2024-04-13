@@ -1,6 +1,6 @@
 .room-wrapper{
     display: grid;
-    grid-template-rows: 2fr;
+    grid-template-rows: auto auto auto auto;
     grid-template-columns: min-content auto auto auto;
     gap: 5vh;
     margin-top: 5vh;
@@ -10,7 +10,6 @@
 
 .rooms{
     margin-top:2vh;
-
 }
 
 .rooms:last-child{
