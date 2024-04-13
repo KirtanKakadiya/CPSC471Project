@@ -128,13 +128,13 @@ CREATE TABLE IF NOT EXISTS BOOKING (
 
 
 INSERT INTO PERSON (id, f_name, m_name, l_name, phone_number, email, password) VALUES
-   (1, 'student1', NULL, 'Sharma', '123-456-7890', 'student', 'password'),
-   (2, 'student2', NULL, 'Kakadiya', '123-456-7890', 'thisisntme@gmail.com', 'password2'),
-   (3, 'student3', NULL, 'Dafoe', '123-456-7890', 'thisismaybeme@gmail.com', 'password3'),
-   (4, 'prof1', NULL, 'test1', '123-741-8520', 'professor', 'password'),
-   (5, 'prof2', NULL, 'test2', '123-741-8521', 'email2@gmail.com', 'password4'),
-   (6, 'admin1', NULL, 'test3', '123-741-8522', 'admin', 'password'),
-   (7, 'admin2', NULL, 'test4', '123-741-8523', 'email4@gmail.com', 'password6');
+   (1, 'Kartik', NULL, 'Sharma', '123-456-7890', 'kartik@gmail.com', 'password'),
+   (2, 'Kirtan', NULL, 'Kakadiya', '123-456-7890', 'kirtan@gmail.com', 'password'),
+   (3, 'Nathaniel', NULL, 'Dafoe', '123-456-7890', 'nathaniel@gmail.com', 'password'),
+   (4, 'James', NULL, 'Hetfeild', '123-741-8520', 'james@gmail.com', 'password'),
+   (5, 'Lars', NULL, 'Ulrich', '123-741-8521', 'lars@gmail.com', 'password'),
+   (6, 'Kirk', NULL, 'Hammet', '123-741-8522', 'kirk@gmail.com', 'password'),
+   (7, 'Rom', NULL, 'Trujillo', '123-741-8523', 'rob@gmail.com', 'password');
    
    
 INSERT INTO ROOM (room_id, created_by, capacity, room_type) VALUES
