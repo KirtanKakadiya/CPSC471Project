@@ -102,7 +102,7 @@ router.post('/getNameBooking', (req, res) => {
 router.post('/getAllBooking', (req, res) => {
     const {name} = req.body;
     
-    databaseConnection.query('SELECT * FROM BOOKING',[name], (err, results) => {
+    databaseConnection.query('SELECT * FROM BOOKING where scheduled_by = ?',[name], (err, results) => {
         
         if(err) {
             console.log(err);
