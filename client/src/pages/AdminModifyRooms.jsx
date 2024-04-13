@@ -27,7 +27,7 @@ export default function AdminModifyRooms() {
     
     useEffect(() =>{
         async function getData(){
-            const response = await fetch("http://localhost:7003/booking/getAllBooking", {
+            const response = await fetch("http://localhost:7003/booking/getAllBookingAdmin", {
                 method: "POST",
                 headers: {
                   "Access-Control-Allow-Origin": "*",

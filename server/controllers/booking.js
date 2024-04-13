@@ -121,6 +121,27 @@ router.post('/getAllBooking', (req, res) => {
     });
 });
 
+router.post('/getAllBookingAdmin', (req, res) => {
+    
+    databaseConnection.query('SELECT * FROM BOOKING', (err, results) => {
+        
+        if(err) {
+            console.log(err);
+            return res.status(500).send('Internal Server Error');
+        }
+        else if(results.affectedRows === 0){
+            
+            return res.status(401).send('Couldnt view booking');
+        }
+        else{
+            console.log(results);
+            return res.status(200).json(results);
+            
+        }
+    
+    });
+});
+
 
 router.post('/approveBooking', (req, res) => {
     const {room, start, end, userID} = req.body;
