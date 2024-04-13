@@ -3,12 +3,12 @@ import DataTable from "react-data-table-component"
 import { useState, useEffect } from 'react'
 import { MdDelete } from "react-icons/md";
 import { ToastContainer, toast } from 'react-toastify';
-
+import { useSelector, useDispatch } from 'react-redux'
 export default function ReservationsTable(){
     const [data, setData] = useState()
     const [loading, setLoading] = useState(false)
     const [perPage, setPerPage] = useState(10);
-
+    const userID = useSelector((state) => state.user.userID)
     function formatDateTime(date) {
         const year = date.getFullYear();
         const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -29,7 +29,7 @@ export default function ReservationsTable(){
                   "Access-Control-Allow-Methods": "POST",
                   "Content-Type": "application/json",
                 },
-                body: JSON.stringify({name: 2}),
+                body: JSON.stringify({name: userID}),
             }
             );
 
