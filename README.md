@@ -14,7 +14,12 @@ As a current university student finding quiet workspaces is quite difficult to f
 5. Navigate to the server folder (```cd server```)
 6. Run ```npm install``` in the terminal
 7. In the terminal folder create a ```.env``` file
-8. Add these variables to the ```.env``` file
-/t/t 8.1 : DB_HOST=**localhost**\DB_USER=**USER**\DB_PASSWORD=**PASSWORD**
+8. Add these variables to the `.env` file:
+   - `DB_HOST=localhost`
+   - `DB_USER=USER`
+   - `DB_PASSWORD=PASSWORD`
+     - `DB_HOST`: The hostname of your database server.
+     - `DB_USER`: Your database username.
+     - `DB_PASSWORD`: Your database password.
 9. In the client terminal run a ```npm start```
 10. In the server terminal run a ```npm start```
