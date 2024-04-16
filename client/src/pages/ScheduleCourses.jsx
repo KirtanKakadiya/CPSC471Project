@@ -47,12 +47,10 @@ export default function ScheduleCourses(){
     };
 
     const onDateStartChange=(newDate)=>{
-        //Your custom code here
         setSemStartDate(dayjs(newDate).format('YYYY-MM-D'));
     };
 
     const onDateEndChange=(newDate)=>{
-    //Your custom code here
         setSemEndDate(dayjs(newDate).format('YYYY-MM-D'));
     };
 
@@ -128,7 +126,7 @@ export default function ScheduleCourses(){
     return(
         <div className='content-wrapper-addroom'>
             <h1 className='title'>
-                Admin Add Room
+                Admin Schedule Courses
             </h1>
 
             <div className='usertype'>

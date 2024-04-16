@@ -29,7 +29,6 @@ export default function ViewRoom(){
 
 
     const onDateChange=(newDate)=>{
-        //Your custom code here
         setDateTime(dayjs(newDate).format('YYYY-MM-D HH:00:00'));
        };
     
