@@ -46,7 +46,6 @@ export default function AdminAddUsers(){
     };
 
     async function addStudent(){
-
         const body = {
             f_name: fName,
             m_name: mName,
@@ -112,7 +111,6 @@ export default function AdminAddUsers(){
     }
 
     async function addProfessor(){
-
         if(start == "" || end == "" || days == null || heldIn ==null){
             toast.error("Please enter all fields");
             return;
@@ -154,20 +152,22 @@ export default function AdminAddUsers(){
     }
 
     const HandleSubmit  = () => {
-
         if(fName == null || lName == null || email == null || pass == null){
             toast.error("Please Enter all fields")
             return;
         }
 
-        switch(userType){
-            case "Student":
-                addStudent();
-            case "Admin":
-                addAdmin();
-            case "Professor":
-                addProfessor();
+        if(userType == "Student"){
+            addStudent();
         }
+        else if(userType == "Admin"){
+            addAdmin();
+        }
+        else if(userType == "Professor")
+        {
+            addProfessor();
+        }
+
     }
 
     useEffect(()=>{

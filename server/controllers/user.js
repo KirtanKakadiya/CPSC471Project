@@ -94,11 +94,10 @@ router.post('/adduser', (req, res) => {
 //3.0 Admin add user /user/adminadduser
 router.post('/adminadduserstudent', (req, res) => {
     const {f_name, m_name, l_name, phone_number, email, password} =  req.body;
-
     databaseConnection.query('INSERT INTO PERSON (f_name, m_name, l_name, phone_number, email, password)  VALUES (?, ?, ?, ?, ?, ?)', [f_name, m_name, l_name, phone_number, email, password], (err, result) => {
         if(err) {
-            console.log(err);
-            return res.status(500).send('Internal Server Error');
+            console.error(err);
+            return res.status(500).send('Internal Server Error 101');
         }
         else if(result.affectedRows === 0){
             return res.status(401).send('Couldnt add user');
@@ -109,7 +108,7 @@ router.post('/adminadduserstudent', (req, res) => {
     databaseConnection.query('INSERT INTO STUDENT (student_id) SELECT id FROM PERSON WHERE email = ?', [email], (err, result) => {
         if(err) {
             console.log(err);
-            return res.status(500).send('Internal Server Error');
+            return res.status(500).send('Internal Server Error 112');
         }
         else if(result.affectedRows === 0){
             return res.status(401).send('Couldnt add user');
@@ -119,6 +118,8 @@ router.post('/adminadduserstudent', (req, res) => {
         }
     
     })
+
+
 })
 
 //4.0 Admin updates user type /user/adminmodifyusertype
