@@ -12,7 +12,7 @@ As a current university student finding quiet workspaces is quite difficult to f
 4. Open a seperate terminal window
 5. Navigate to the server folder (```cd server```)
 6. Run ```npm install``` in the terminal
-7. In the terminal folder create a ```.env``` file
+7. In the server folder create a ```.env``` file
 8. Add these variables to the `.env` file:
    - `DB_HOST=localhost`
    - `DB_USER=USER`
